@@ -133,22 +133,39 @@ Register a repository bookmark and exchange version history
 
 ## Jenkins Pipeline
 
+To push code via the Jenkins CI/CD pipeline, we commit according to the following general steps.
+
+1. Switch to a branch.
+2. Pull the latest code changes.
+3. Add the updated code via cherry-pick
+4. Push the code
+5. Switch to the next branch and repeat.
+
 ```
-// Switch to master
+// Make changes to master.
 git checkout master
 git pull origin master
-git cherry-pick (commit id), e.g. git cherry-pick 506880c
--- for conflicts, get the name of the file that has a merge conflict problem:
-   git diff --name-only --diff-filter=U
--- you may then need to add files, git add <file>
--- git commit -m "Merged and cherry picked"
--- run update.php if needed
+git cherry-pick (commit id), e.g. git cherry-pick xxxxxxx
 git push origin master
 
-// Then switch to proprod and do the same
+// Switch to proprod (sandbox) and do the same.
 git checkout preprod
 git pull origin preprod
-...
+git cherry-pick (commit id), e.g. git cherry-pick xxxxxxx
+git push origin preprod
 
-// Then switch to production and do the same
+// Switch to production (live) and do the same.
+git checkout production
+git pull origin production
+git cherry-pick (commit id), e.g. git cherry-pick xxxxxxx
+git push origin production
+
+
+-- For conflicts, get the name of the file that has a merge conflict problem.
+git diff --name-only --diff-filter=U
+-- You may then need to add those merge conflicted files.
+git add <file>
+-- And then commit.
+git commit -m "Merged and cherry picked"
+-- For Drupal you may want to run update.php if needed.
 ```
