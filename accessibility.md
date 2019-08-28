@@ -1,3 +1,5 @@
+# Accessibility Cheat Sheet
+
 Accessibility is the design of software for people who experience disabilities. CypherWorx wants to ensure that disabilities don't hinder an individual from using the site in any capacity, and as such we develop code to help people with disabilities so they can use the site. There are a wide variety of disabilities that we design to help, including: 
 
 - **Visual**: Visual impairments including blindness, various common types of low vision and poor eyesight, various types of color blindness;
@@ -9,8 +11,6 @@ Accessibility is the design of software for people who experience disabilities. 
 Web accessibility should be baked-in rather than retrofitted, and all software pushed to live will need to pass our accessibility checks.
 
 For more information please read [WebAim](https://webaim.org/) in its entirety and Wikipedia's article on [web accessibility](https://en.wikipedia.org/wiki/Web_accessibility). See also the [Accessibility Cheatsheet](https://moritzgiessmann.de/accessibility-cheatsheet/).
-
-***
 
 ## Making software accessible ##
 
@@ -48,8 +48,6 @@ For more information please read [WebAim](https://webaim.org/) in its entirety a
 
 1. Run aXe ([http://bitly.com/aXe-Chrome](http://bitly.com/aXe-Chrome) or [http://bit.ly/aXe-Firefox](http://bit.ly/aXe-Firefox)) to test for issues.
 
-***
-
 ## Standards
 
 There are various accessibility standards that websites need to pass.
@@ -58,8 +56,6 @@ There are various accessibility standards that websites need to pass.
 - [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/)
 
 It's recommended to complete a [VPAT](https://www.section508.gov/sell/vpat) to meet compliance.
-
-***
 
 ## Accessibility Resources ##
 
