@@ -159,8 +159,9 @@ git checkout production
 git pull origin production
 git cherry-pick (commit id), e.g. git cherry-pick xxxxxxx
 git push origin production
+```
 
-
+```
 -- For conflicts, get the name of the file that has a merge conflict problem.
 git diff --name-only --diff-filter=U
 -- You may then need to add those merge conflicted files.
