@@ -3,7 +3,6 @@
 A fork of (rstacruz) [https://github.com/rstacruz/cheatsheets/blob/master/css.md].
 
 ## Basics
-{: .-three-column}
 
 ### Selectors
 
@@ -12,7 +11,6 @@ A fork of (rstacruz) [https://github.com/rstacruz/cheatsheets/blob/master/css.md
   font-weight: bold;
 }
 ```
-{: .-setup}
 
 | Selector          | Description |
 | ----------------- | ----------- |
@@ -46,18 +44,14 @@ A fork of (rstacruz) [https://github.com/rstacruz/cheatsheets/blob/master/css.md
 | Selector             | Description              |
 | -------------------- | ------------------------ |
 | `:target`            | eg, `h2#foo:target`      |
-| ---                  | ---                      |
 | `:disabled`          |                          |
 | `:focus`             |                          |
 | `:active`            |                          |
-| ---                  | ---                      |
 | `:nth-child(3)`      | 3rd child                |
 | `:nth-child(3n+2)`   | 2nd child in groups of 3 |
 | `:nth-child(-n+4)`   |                          |
-| ---                  | ---                      |
 | `:nth-last-child(2)` |                          |
 | `:nth-of-type(2)`    |                          |
-| ---                  | ---                      |
 
 ### Pseudo-class variations
 
@@ -67,15 +61,12 @@ A fork of (rstacruz) [https://github.com/rstacruz/cheatsheets/blob/master/css.md
 | `:last-of-type`   |
 | `:nth-of-type(2)` |
 | `:only-of-type`   |
-| ---               |
 | `:first-child`    |
 | `:last-child`     |
 | `:nth-child(2)`   |
 | `:only-child`     |
-{: .-left-align}
 
 ## Fonts
-{: .-left-reference}
 
 ### Properties
 
@@ -85,23 +76,18 @@ A fork of (rstacruz) [https://github.com/rstacruz/cheatsheets/blob/master/css.md
 | `font-size:`       | `<size>`                             |
 | `letter-spacing:`  | `<size>`                             |
 | `line-height:`     | `<number>`                           |
-| ---                | ---                                  |
 | `font-weight:`     | `bold` `normal`                      |
 | `font-style:`      | `italic` `normal`                    |
 | `text-decoration:` | `underline` `none`                   |
-| ---                | ---                                  |
 | `text-align:`      | `left` `right` `center` `justify`    |
 | `text-transform:`  | `capitalize` `uppercase` `lowercase` |
-{: .-key-values}
 
 ### Shorthand
-{: .-prime}
 
 |         | style    | weight | size (required) |     | line-height | family            |
 | ------- | -------- | ------ | --------------- | --- | ----------- | ----------------- |
 | `font:` | `italic` | `400`  | `14px`          | `/` | `1.5`       | `sans-serif`      |
 |         | style    | weight | size (required) |     | line-height | family (required) |
-{: .-css-breakdown}
 
 ### Example
 
@@ -122,14 +108,12 @@ text-transform: lowercase; /* hello */
 ```
 
 ## Background
-{: .-left-reference}
 
 ### Properties
 
 | Property                 | Description                              |
 | ------------------------ | ---------------------------------------- |
 | `background:`            | _(Shorthand)_                            |
-| ---                      | ---                                      |
 | `background-color:`      | `<color>`                                |
 | `background-image:`      | `url(...)`                               |
 | `background-position:`   | `left/center/right` `top/center/bottom`  |
@@ -137,7 +121,6 @@ text-transform: lowercase; /* hello */
 | `background-clip:`       | `border-box` `padding-box` `content-box` |
 | `background-repeat:`     | `no-repeat` `repeat-x` `repeat-y`        |
 | `background-attachment:` | `scroll` `fixed` `local`                 |
-{: .-key-values}
 
 ### Shorthand
 
@@ -146,7 +129,6 @@ text-transform: lowercase; /* hello */
 | `background:` | `#ff0` | `url(bg.jpg)` | `left`    | `top`     | `/` | `100px` `auto` | `no-repeat` | `fixed;`   |
 | `background:` | `#abc` | `url(bg.png)` | `center`  | `center`  | `/` | `cover`        | `repeat-x`  | `local;`   |
 |               | color  | image         | positionX | positionY |     | size           | repeat      | attachment |
-{: .-css-breakdown}
 
 ### Multiple backgrounds
 
@@ -156,7 +138,6 @@ background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
 ```
 
 ## Animation
-{: .-left-reference}
 
 ### Properties
 
@@ -171,7 +152,6 @@ background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
 | `animation-direction:`       | `normal` `reverse` `alternate` `alternate-reverse`       |
 | `animation-fill-mode:`       | `none` `forwards` `backwards` `both` `initial` `inherit` |
 | `animation-play-state:`      | `normal` `reverse` `alternate` `alternate-reverse`       |
-{: .-key-values}
 
 ### Shorthand
 
@@ -179,7 +159,6 @@ background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
 | ------------ | -------- | -------- | --------------- | ------- | ---------- | ------------------- | --------- | ---------- |
 | `animation:` | `bounce` | `300ms`  | `linear`        | `100ms` | `infinite` | `alternate-reverse` | `both`    | `reverse`  |
 |              | name     | duration | timing-function | delay   | count      | direction           | fill-mode | play-state |
-{: .-css-breakdown}
 
 ### Example
 
