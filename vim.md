@@ -164,7 +164,6 @@ See `:help operator`
 ### Examples
 
 Combine operators with *motions* to use them.
-{: .-setup}
 
 | Shortcut               | Description                               |
 | ---                    | ---                                       |
@@ -181,14 +180,11 @@ See: `:help motion.txt`
 ------------
 
 ### Usage
-{: .-prime}
 
 Text objects let you operate (with an *operator*) in or around text blocks (*objects*).
-{: .-setup}
 
 | `v`      | `i`                  | `p`         |
 | Operator | [i]nside or [a]round | Text object |
-{: .-css-breakdown}
 
 ### Text objects
 
@@ -249,7 +245,6 @@ Misc
 | `zr`          | Fold less _(foldlevel -= 1)_ |
 | ---           | ---                          |
 | `zx`          | Update folds                 |
-
 
 Uppercase ones are recursive (eg, `zO` is open recursively).
 
@@ -312,7 +307,6 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 | `gUU`    | Uppercase current line (also `gUgU`) |
 | `guu`    | Lowercase current line (also `gugu`) |
 
-
 Do these in visual or normal mode.
 
 ### Marks
@@ -327,14 +321,12 @@ Do these in visual or normal mode.
 | <code>`a</code> | Jump to the cursor position `a`                    |
 | `'a`            | Jump to the beginning of the line with position `a`|
 
-
 ### Misc
 
 | Shortcut | Description                               |
 | ---      | ---                                       |
 | `.`      | Repeat last command                       |
 | `]p`     | Paste under the current indentation level |
-
 
 ### Command line
 
@@ -343,7 +335,6 @@ Do these in visual or normal mode.
 | `<C-R><C-W>` | Insert current word into the command line |
 | `<C-R>"`     | Paste from " register                     |
 | `<C-X><C-F>` | Auto-completion of path in insert mode    |
-
 
 ### Text alignment
 
@@ -368,7 +359,6 @@ Do this in insert mode.
 
 Works like `:qa`, but throws an error. Great for aborting Git commands.
 
-
 ### Spell checking
 
 | Shortcut                     | Description                                             |
@@ -381,9 +371,7 @@ Works like `:qa`, but throws an error. Great for aborting Git commands.
 | `zw`                         | Mark word as bad/mispelling                             |
 | `zu` / `C-X (Insert Mode)`   | Suggest words for bad word under cursor from spellfile  |
 
-
 See `:help spell`
-
 
 Also see
 --------
