@@ -1,6 +1,10 @@
-# Basics
+# Sass Cheat Sheet
 
-## Variables
+Derived from [Devhints](https://devhints.io/sass)
+
+## Basics
+
+### Variables
 
 ```scss
 $red: #833;
@@ -12,7 +16,7 @@ body {
 }
 ```
 
-## Nesting
+### Nesting
 
 ```scss
 .markdown-body {
@@ -26,14 +30,14 @@ body {
 }
 ```
 
-## Comments
+### Comments
 
 ```scss
 /* Block comments */
 // Line comments
 ```
 
-## Mixins
+### Mixins
 
 ```scss
 @mixin heading-font {
@@ -48,7 +52,7 @@ h1 {
 }
 ```
 
-### with parameters
+#### with parameters
 
 ```scss
 @mixin font-size($n) {
@@ -62,7 +66,7 @@ body {
 }
 ```
 
-### with default values
+#### with default values
 
 ```scss
 @mixin pad($n: 10px) {
@@ -76,7 +80,7 @@ body {
 }
 ```
 
-### with a default variable
+#### with a default variable
 
 ```scss
 // Set a default value
@@ -95,7 +99,7 @@ body {
 }
 ```
 
-## Extend
+### Extend
 
 ```scss
 .button {
@@ -109,7 +113,7 @@ body {
 }
 ```
 
-## Composing
+### Composing
 
 ```scss
 @import './other_sass_file`;
@@ -117,9 +121,9 @@ body {
 
 The `.scss` or `.sass` extension is optional.
 
-# Color functions
+## Color functions
 
-## rgba
+### rgba
 
 ```scss
 rgb(100, 120, 140)
@@ -127,13 +131,13 @@ rgba(100, 120, 140, .5)
 rgba($color, .5)
 ```
 
-## Mixing
+### Mixing
 
 ```scss
 mix($a, $b, 10%)   // 10% a, 90% b
 ```
 
-## Modifying HSLA
+### Modifying HSLA
 
 ```scss
 darken($color, 5%)
@@ -158,9 +162,9 @@ fade-out($color, .5)  // aka transparentize() - halves the opacity
 rgba($color, .5)      // sets alpha to .5
 ```
 
-## Getting individual values
+### Getting individual values
 
-### HSLA
+#### HSLA
 
 ```scss
 hue($color)         // → 0deg..360deg
@@ -169,7 +173,7 @@ lightness($color)   // → 0%..100%
 alpha($color)       // → 0..1 (aka opacity())
 ```
 
-### RGB
+#### RGB
 
 ```
 red($color)         // → 0..255
@@ -179,7 +183,7 @@ blue($color)
 
 See: [hue()](http://sass-lang.com/documentation/Sass/Script/Functions.html#hue-instance_method), [red()](http://sass-lang.com/documentation/Sass/Script/Functions.html#red-instance_method)
 
-## Adjustments
+### Adjustments
 
 ```scss
 // Changes by fixed amounts
@@ -202,9 +206,9 @@ change-color($color, $blue: 250)
 
 Supported: `$red` `$green` `$blue` `$hue` `$saturation` `$lightness` `$alpha`
 
-# Other functions
+## Other functions
 
-## Strings
+### Strings
 
 ```scss
 unquote('hello')
@@ -222,14 +226,14 @@ str-slice(hello, 2, 5)      // "ello" - it's 1-based, not 0-based
 str-insert("abcd", "X", 1)  // "Xabcd"
 ```
 
-## Units
+### Units
 
 ```scss
 unit(3em)        // 'em'
 unitless(100px)  // false
 ```
 
-## Numbers
+### Numbers
 
 ```scss
 floor(3.5)
@@ -248,7 +252,7 @@ percentage(.5)   // 50%
 random(3)        // 0..3
 ```
 
-## Misc
+### Misc
 
 ```scss
 variable-exists(red)    // checks for $red
@@ -269,24 +273,24 @@ selector-replace(...)
 selector-unify(...)
 ```
 
-# Feature checks
+## Feature checks
 
-## Feature check
+### Feature check
 
 ```scss
 feature-exists(global-variable-shadowing)
 ```
 
-## Features
+### Features
 
 * global-variable-shadowing
 * extend-selector-pseudoclass
 * units-level-3
 * at-error
 
-# Loops
+## Loops
 
-## For loops
+### For loops
 
 ```scss
 @for $i from 1 through 4 {
@@ -294,7 +298,7 @@ feature-exists(global-variable-shadowing)
 }
 ```
 
-## Each loops (simple)
+### Each loops (simple)
 
 ```scss
 $menu-items: home about services contact;
@@ -306,7 +310,7 @@ $menu-items: home about services contact;
 }
 ```
 
-## Each loops (nested)
+### Each loops (nested)
 ```scss
 $backgrounds: (home, 'home.jpg'), (about, 'about.jpg');
 
@@ -317,7 +321,7 @@ $backgrounds: (home, 'home.jpg'), (about, 'about.jpg');
 }
 ```
 
-## While loops
+### While loops
 
 ```scss
 $i: 6;
@@ -327,9 +331,9 @@ $i: 6;
 }
 ```
 
-# Other features
+## Other features
 
-## Conditionals
+### Conditionals
 
 ```scss
 @if $position == 'left' {
@@ -341,7 +345,7 @@ $i: 6;
 }
 ```
 
-## Interpolation
+### Interpolation
 
 ```scss
 .#{$klass} { ... }      // Class
@@ -352,7 +356,7 @@ font: #{$size}/#{$line-height}
 url("#{$background}.jpg")
 ```
 
-## Lists
+### Lists
 
 ```scss
 $list: (a b c);
@@ -363,7 +367,7 @@ length($list)
 @each $item in $list { ... }
 ```
 
-## Maps
+### Maps
 
 ```scss
 $map: (key1: value1, key2: value2, key3: value3);
@@ -371,7 +375,7 @@ $map: (key1: value1, key2: value2, key3: value3);
 map-get($map, key1)
 ```
 
-# See also
+## See also
 
 - <http://sass-lang.com/documentation/Sass/Script/Functions.html>
 - <http://sass-lang.com/documentation/file.SASS_REFERENCE.html#sassscript>
