@@ -10,17 +10,17 @@ GitHub provides desktop clients that include a graphical user interface for the 
 
 ### GitHub for Windows
 
-[htps://windows.github.com](htps://windows.github.com)
+[https://windows.github.com](https://windows.github.com)
 
 ### GitHub for Mac
 
-[htps://mac.github.com](htps://mac.github.com)
+[https://mac.github.com](https://mac.github.com)
 
 Git distributions for Linux and POSIX systems are available on the official Git SCM web site.
 
 ### Git for All Platforms
 
-[htp://git-scm.com](htp://git-scm.com)
+[http://git-scm.com](http://git-scm.com)
 
 ## Configure Tooling
 
@@ -159,8 +159,9 @@ git checkout production
 git pull origin production
 git cherry-pick (commit id), e.g. git cherry-pick xxxxxxx
 git push origin production
+```
 
-
+```
 -- For conflicts, get the name of the file that has a merge conflict problem.
 git diff --name-only --diff-filter=U
 -- You may then need to add those merge conflicted files.
