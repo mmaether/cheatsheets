@@ -175,6 +175,10 @@ animation: bounce 300ms linear 2s infinite alternate-reverse forwards normal;
 .one('webkitAnimationEnd oanimationend msAnimationEnd animationend')
 ```
 
+## Clipping
+
+`clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);`
+
 ## Cascading
 
 CSS styles are applied based on three pillars.
