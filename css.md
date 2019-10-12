@@ -234,3 +234,18 @@ Selector | Inline | IDs | Classes | Elements | Total
 ![CSS Specifications](images/css-specificity.png)
 
 ![Full CSS Specifications](images/full-cascade.png)
+
+![How CSS values are processed](images/css-processed-values.png)
+
+![CSS value processing](images/css-value-processing.png)
+
+![How units are converted from relative to absolute px](images/unit-conversion.png)
+
+## Inheritance
+
+* Inheritance passes the value for some specific properties from parents to children -- **more maintainable code.**
+* Properties related to text are inherited: `font-family`, `font-size`, `color`, etc.
+* The computed value of a property is what gets inherited, **not** the declared value.
+* Inheritance of a property only works if no one declares a value for that property.
+* The `inherit` keyword forces inheritance on a certain property.
+* The `initial` keyword resets a property to its initial value.
