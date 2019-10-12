@@ -1,6 +1,6 @@
 # CSS Cheat Sheet
 
-A fork of (rstacruz) [https://github.com/rstacruz/cheatsheets/blob/master/css.md].
+A fork of [rstacruz](https://github.com/rstacruz/cheatsheets/blob/master/css.md).
 
 ## Basics
 
@@ -174,3 +174,59 @@ animation: bounce 300ms linear 2s infinite alternate-reverse forwards normal;
 ```js
 .one('webkitAnimationEnd oanimationend msAnimationEnd animationend')
 ```
+
+## Cascading
+
+CSS styles are applied based on three pillars.
+
+`Importance` > `Specificity` > `Source Order`
+
+### Importance
+
+1. User `!important` declarations.
+2. Author `!important` declarations.
+3. Author declarations.
+4. User declarations.
+5. Default browser declarations.
+
+### Specificity
+
+1. Inline styles
+2. IDs
+3. Classes, pseudo-classes, attribute
+4. Elements, pseudo-elements
+
+### Source Order
+
+The last declaration in the code will override all other declarations and will be applied.
+
+As an example:
+
+```css
+.button {
+  background-color: blue;
+}
+
+nav#nav div.pull-right .button {
+  background-color: green;
+}
+
+a {
+  background-color: purple;
+}
+
+#nav a.button:hover {
+  background-color: yellow;
+}
+```
+
+Selector | Inline | IDs | Classes | Elements | Total
+------ | ------ | --- | ------- | -------- | -----
+`.button` | 0 | 0 | 1 | 0 | (0, 0, 1, 0)
+`nav#nav div.pull-right .button` | 0 | 1 | 2 | 2 | (0, 1, 2, 2)
+`a` | 0 | 0 | 0 | 1 | (0, 0, 0, 1)
+`#nav a.button:hover` | 0 | 1 | 2 | 1 | (0, 1, 2, 1)
+
+![CSS Specifications](images/css-specificity.png)
+
+![Full CSS Specifications](images/full-cascade.png)
