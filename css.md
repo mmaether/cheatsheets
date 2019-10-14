@@ -249,3 +249,43 @@ Selector | Inline | IDs | Classes | Elements | Total
 * Inheritance of a property only works if no one declares a value for that property.
 * The `inherit` keyword forces inheritance on a certain property.
 * The `initial` keyword resets a property to its initial value.
+
+## BEM
+
+* **B**lock **E**lement **M**odifier
+* Block: A standalone component that is meaningful on its own.
+* Element: part of a block that as no standlone meaning.
+
+```css
+.block {}
+.block__element {}
+.bleck__element-modifier {}
+```
+
+```html
+<figure class="recipe">
+  <div class="recipe__hero">
+    <img class="recipe__img" src="pizza.png" alt="Pizza">
+  </div>
+  <div class="recipe__info">
+    <div class="recipe__category">Veggie</div>
+    <figcaption class="recipe__details">
+      <h2 class="recipe__title">Pizza Vegetable</h2>
+      <p class="recipe__description">Yummy vegetable pizza with tasty olives.</p>
+    </figcaption>
+  </div>
+  <a class="recipe__btn btn btn--round" href="#">Try</a>
+</figure>
+```
+
+### Architecture
+
+Create 7 different folders for partial Sass files, and 1 main Sass file to import all other files into a compiled CSS stylesheet.
+
+* `base/`: Put basic project definitions.
+* `components/`: One file for each component.
+* `layout/`: Overall layout of the project.
+* `pages/`: Styles for specific pages of the project.
+* `themes/`: If you want to implement different individual themes.
+* `abstracts/`: Code that doesn't output any CSS, such as variables or mixins.
+* `vendors/`: All third party CSS.
