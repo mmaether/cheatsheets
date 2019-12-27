@@ -1,5 +1,7 @@
 # Terraform
 
+Terraform enables you to safely and predictably create, change, and improve cloud infrastructure.
+
 ## Installation
 
 Follow the [Installing Terraform](https://learn.hashicorp.com/terraform/getting-started/install) page to install Terraform.
@@ -18,15 +20,23 @@ Command | Function
 `terraform` | Verifies terraform's installation, then displays help documents.
 `terraform -help` | Displays help guides.
 `terraform --help plan` | Displays help guide for that specific command.
-`terraform init` | Initializes various local settings and data that will be used by subsequent commands.
-`terraform fmt` | Formats the Terraform files to be uniform.
-`terraform validate` | Checks and reports errors within modules, attribute names, and value types.
-`terraform plan` | Tests what infrastructure would be built based on Terraform files. It does not run.
+`terraform console` | Interactive console for Terraform interpolations. Great to debug variables.
+`terraform init` | Initialize a Terrform working directory.
+`terraform fmt` | Rewrites config files to canonical format.
+`terraform validate` | Validates the Terraform files.
+`terraform plan` | Generate and show an execution plan. It does not run.
+`terraform output` | Read an output from a state file.
 `terraform plan -out out.terraform` | The changes that Terraform plans to make will be saved to `out.terraform`.
-`terraform apply` | Shows and then executes the plan after approval. Can be done after editing.
-`terraform show` | Displays the current state.
-`terraform graph` | Create a visual representation of a configuration or execution plan.
-`terraform destroy` | Destroys all resources.
+`terraform apply` | Builds or changes infrastructure after approval.
+`terraform show` | Inspect Terraform state or plan.
+`terraform graph` | Create a visual graph of Terraform resources.
+`terraform providers` | Prints a tree of the providers used in the configuration.
+`terraform refresh` | Update local state file against real resources.
+`terraform taint` | Manually mark a resource for recreation.
+`terraform untaint` | Manually unmark a resource as tainted.
+`terraform workspace` | Workspace management.
+`terraform destroy` | Destroys Terraform-managed infrastructure.
+`ssh-keygen -f mykey` | Generate a key named `mykey`.
 
 ## Steps
 
@@ -47,6 +57,153 @@ Set | A set is like a list, but it doesn't keep the order you put it in and can 
 Object | An object is like a map but each element can have a different type. | `{`<br>&nbsp;&nbsp;`firstname="John"`<br>&nbsp;&nbsp;`housenumber=10` <br>`}`
 Tuple | A tuple is like a list, but each element can have a different type. | `[0, "string", false]`
 
+## Files
+
+### `main.tf`
+
+Terraform uses configuration files that are named with the `.tf` file extension. Add Terraform code in `.tf` files for Terraform to run. These files can be named anything.
+
+### `terraform.tfstate`
+
+Terraform must store state about your managed infrastructure and configuration. This state is used by Terraform to map real world resources to your configuration, keep track of metadata, and to improve performance for large infrastructures. This is managed by Terraform and should not be overridden. 
+
+This state is stored by default in a local file named `terraform.tfstate`, but it can also be stored remotely, which works better in a team environment.
+
+Learn More
+
+- [State](https://www.terraform.io/docs/state/index.html)
+- [Purpose of Terraform State](https://www.terraform.io/docs/state/purpose.html)
+- [Remote State](https://www.terraform.io/docs/state/remote.html)
+
+## Providers
+
+[Providers](https://www.terraform.io/docs/configuration/providers.html) refers to the cloud infrastructure provider that you're building the environment in. This must be set so Terraform knows which API to use.
+
+```bash
+# The default provider configuration
+provider "aws" {
+  region = "us-east-1"
+  #region = var.region
+}
+```
+
+### Authentication
+
+You must provide Terraform with an account's access key and secret key. This can be tricky as this is sensitive information that we don't want to have leaked out. There are a few [methods](https://www.terraform.io/docs/providers/aws/index.html), some better than others.
+
+#### Static Credentials
+
+> **Warning**: Hard-coding credentials into any Terraform configuration is not recommended. Do not do this, this is to display an example.
+
+```bash
+provider "aws" {
+  region     = "us-west-2"
+  access_key = "my-access-key"
+  secret_key = "my-secret-key"
+}
+```
+
+####  Environment Variables
+
+If you define your provider without variables, then the CLI will ask you to provide the credentials.
+
+```bash
+provider "aws" {}
+```
+
+```bash
+$ export AWS_ACCESS_KEY_ID="anaccesskey"
+$ export AWS_SECRET_ACCESS_KEY="asecretkey"
+$ export AWS_DEFAULT_REGION="us-east-`"
+$ terraform plan
+```
+
+#### Shared Credentials File
+
+You can use an AWS credentials file to specify your [credentials](https://letslearndevops.com/2017/07/24/how-to-secure-terraform-credentials/). 
+
+First download the AWS CLI and run `aws configure`. Enter credentials.
+
+```bash
+[mmaether@example demo] $ aws configure
+AWS Access Key ID [None]: ENTER-YOUR-ACCESS-KEY-HERE
+AWS Secret Access Key [None]: ENTER-YOUR-SECRET-KEY-HERE
+Default region name [None]: us-easst-1
+Default output format [None]: 
+```
+
+The default credential files are saved here:
+
+- Windows: `%USERPROFILE%\.aws\credentials`
+- Linux and OS X: `$HOME/.aws/credentials`
+
+You can save multiple profiles that can be called on later.
+
+```bash
+[mmaether@example demo] $ cat ~/.aws/credentials 
+[default]
+aws_access_key_id = ENTER-YOUR-ACCESS-KEY-HERE
+aws_secret_access_key = ENTER-YOUR-SECRET-KEY-HERE
+[dev]
+aws_access_key_id = ENTER-YOUR-ACCESS-KEY-HERE
+aws_secret_access_key = ENTER-YOUR-SECRET-KEY-HERE
+[production]
+aws_access_key_id = ENTER-YOUR-ACCESS-KEY-HERE
+aws_secret_access_key = ENTER-YOUR-SECRET-KEY-HERE
+```
+
+Terraform will check this location if it fails to detect credentials inline or in the environment. 
+
+You can optionally specify a different location in the configuration by providing the `shared_credentials_file` attribute, or in the environment with the `AWS_SHARED_CREDENTIALS_FILE` variable. This method also supports a profile configuration and matching `AWS_PROFILE` environment variable:
+
+```bash
+provider "aws" {
+  region                  = "us-east-1"
+  shared_credentials_file = "/Users/tf_user/.aws/creds"
+  profile                 = "dev"
+}
+```
+
+#### Use `terraform.tfvars`
+
+You can set up the following files:
+
+`provider.tf`: Define the provider.
+
+```bash
+provider "aws" {
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
+  region     = var.region
+}
+
+resource "aws_instance" "web-server" {
+  ami           = "ami-0c2aba6c"
+  instance_type = "t2.micro"
+}
+```
+
+`variables.tf`: Define the variables.
+
+```bash
+variable "aws_access_key" {}
+
+variable "aws_secret_key" {}
+
+variable "region" {
+  default = "us-east-2"
+}
+```
+
+`terraform.tfvars`: Include the variables.
+
+```bash
+aws_access_key = "ENTER-YOUR-ACCESS-KEY-HERE"
+aws_secret_key = "ENTER-YOUR-SECRET-KEY-HERE"
+```
+
+> Make sure to include a `.gitignore` file and add the `.tfvars` file to it. See also a recommended [terraform.gitignore](https://github.com/github/gitignore/blob/master/Terraform.gitignore).
+
 ## Variables
 
 - Everything in one file is not great.
@@ -58,13 +215,13 @@ Tuple | A tuple is like a list, but each element can have a different type. | `[
 
 ```bash
 provider "aws" {
-  access_key = "${var.AWS_ACCESS_KEY}"
-  secret_key = "${var.AWS_SECRET_KEY}"
-  region = "${var.AWS_REGION}"
+  access_key = var.AWS_ACCESS_KEY
+  secret_key = var.AWS_SECRET_KEY
+  region     = var.AWS_REGION
 }
 ```
 
-`vars.tf`: Declare the variables.
+`variables.tf`: Declare the variables, define the variable type, and optionally set a default value.
 
 ```bash
 variable "AWS_ACCESS_KEY" {}
@@ -82,7 +239,7 @@ variable "AMIS" {
 }
 ```
 
-`terraform.tfvars`: To set lots of variables, it is more convenient to specify their values in a *variable definitions* file. This file actually has the values of the variables. Include this file in the `.gitignore`.
+`terraform.tfvars`: Assign the actual values of the variables. Include this file in the `.gitignore`.
 
 ```bash
 AWS_ACCESS_KEY = ""
@@ -100,7 +257,33 @@ resource "aws_instance" "example" {
 }
 ```
 
-You can use [Cloud Images](https://cloud-images.ubuntu.com/locator/ec2) for an easy AMI lookup site. Alternatively just Goole `ami lookup`.
+You can use [Cloud Images](https://cloud-images.ubuntu.com/locator/ec2) for an easy AMI lookup site. Alternatively just Google `ami lookup`.
+
+# Resource Types
+
+`variable`: 
+
+`provider`: 
+
+`resource`: 
+
+`data`: 
+
+https://www.terraform.io/docs/configuration/data-sources.html
+
+## Functions
+
+Terraform comes with numerous built-in [functions](https://www.terraform.io/docs/configuration/functions.html) that can be useful, including but not limited to:
+
+- Numeric Functions: `ceil`, `floor`, `max`, `min`
+- String Functions: `join`, `regex`, `replace`, `split`, `substr`, `trim`, `upper`
+- Collection Functions: `concat`, `contains`, `distinct`, `length`, `slice`
+- Encoding Functions: `base64encode`, `csvdecode`, `jsondecode`, `urlencode`, `yamldecode`
+- Filesystem Functions: `dirname`, `basename`, `file`, `fileexists`
+- Date and Time Functions: `formatdate`, `timeadd`, `timestamp`
+- Hash and Crypto Functions: `base64sha256`, `filesha512`, `md5`, `sha1`
+- IP Network Functions: `cidrhost`, `cidrnetmask`, `cidrsubnet`
+- Type Conversion Functions: `tobool`, `tolist`, `tomap`, `tonumber` `toset`, `tostring`
 
 ## Software Provisioning
 
@@ -190,8 +373,6 @@ resource "aws_instance" "example" {
 }
 ```
 
-To generate a key, run `ssh-keygen -f mykey`
-
 ## Output Variables
 
 Use output to display the public IP address of an AWS resource.
@@ -212,3 +393,26 @@ output "ip" {
 1. Add the backend code to a `.tf` file.
 2. Run the initiation procession.
 
+## Terraform Cloud
+
+- [Overview of Terraform Cloud](https://learn.hashicorp.com/terraform/cloud-gettingstarted/tfc_overview)
+- [Terraform Cloud Documentation](https://www.terraform.io/docs/cloud/index.html)
+- [Connecting VCS Providers to Terraform Cloud](https://www.terraform.io/docs/cloud/vcs/index.html)
+- [Cost Estimation] (https://www.terraform.io/docs/cloud/getting-started/cost-estimation.html): Only for $70 plan.
+
+A workspace name should tell your colleagues what the workspace is for. Most workspaces are a particular environment of a particular Terraform configuration, so the name should include both the name of the configuration and the name of the environment.
+
+In this example, we're using a configuration named "minimum" and we're deploying it in a production environment, so we named it minimum-prod.
+
+## To Do
+
+- Figure out all ways to handle variables, then figure out best way.
+  - In a tf file (tfvars?).
+  - In a file and then reference it.
+  - Leondro: `terraform apply -auto-approve -input=false -var-file=env_vars/itxdv.tfvars` where you have the values in the .tfvars
+- How do we handle multiple environments?
+  - The plan, right now, is to have separate scripts for each env - and not using any type on conditionals/variables. So the first master were working on, which is a consolidation of all the various user TF's we've been generating, will be only for QA and the vars will be all QA specific. They will have variables, of course, for env specific vars - just not conditional vars based on an environment.
+- How to do serverless in Terraform.
+- Resource types: variable, data, input, output, etc.
+- [Multiple Workspaces](https://www.terraform.io/docs/state/workspaces.html)
+- Proper way to handle [credentials](https://www.terraform.io/docs/providers/aws/index.html)
