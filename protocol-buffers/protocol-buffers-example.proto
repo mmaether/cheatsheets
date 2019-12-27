@@ -1,0 +1,54 @@
+// The syntax for this file is proto3
+syntax = "proto3";
+
+// Must include the full root of the protocol buffer
+import "cheatsheets/date.proto";
+
+package person;
+
+/**
+ * Person is used to identify users
+ * across our system.
+ */
+message Person {
+  // the age as of a person's creation
+  int32 age = 1;
+  string first_name = 2;
+  string last_name = 3; // last name
+  
+  // small_picture represents a small .jpg file
+  bytes small_picture = 4;
+  bool is_profile_verified = 5;
+  
+  // height of the person in cm
+  float height = 6;
+
+  // a list of phone numbers that is optional to provide at signup
+  repeated string phone_numbers = 7;
+
+  // we currently only consider 3 eye colors
+  enum EyeColor {
+    UNKNOWN_EYE_COLOR = 0;
+    EYE_GREEN = 1;
+    EYE_BROWN = 2;
+    EYE_BLUE = 3;
+  }
+
+  // it's an enum as defined above
+  EyeColor eye_color = 8;
+
+  // Person's birthday
+  my.date.Date birthday = 9;
+
+  // Define the type Address within Person (full name is Person.Address). Inline.
+  message Address {
+    string address_line_1 = 1;
+    string address_line_2 = 2;
+    string zip_code = 3;
+    string city = 4;
+    string country = 5;
+  }
+
+  // multiple addresses
+  repeated Address addresses = 10;
+}
