@@ -206,12 +206,11 @@ aws_secret_key = "ENTER-YOUR-SECRET-KEY-HERE"
 
 ## Variables
 
-- Everything in one file is not great.
-- Use variables to hide secrets. 
-- You don't want your AWS credentials in your git repository.
-- Use variables for elements that might change, i.e. AMIs are different per region.
+Variables are highly encouraged in Terraform to make the code more reusable and easier to use across a team. It's recommended to store variables in a separate file so if changes should be made for a specific environment or developer, they can simply change the one file instead of sifting through the code.
 
-`provider.tf`: Includes only the provider details.
+Variables can also be used for elements that might change (AMIs per region) and to hide your AWS credentials.
+
+`provider.tf`: Declare the provider. Reference variables.
 
 ```bash
 provider "aws" {
@@ -239,37 +238,47 @@ variable "AMIS" {
 }
 ```
 
-`terraform.tfvars`: Assign the actual values of the variables. Include this file in the `.gitignore`.
+`terraform.tfvars`: Assign the actual values of the variables. **Include this file in the `.gitignore`.**
 
 ```bash
 AWS_ACCESS_KEY = ""
 AWS_SECRET_KEY = ""
-AWS_REGION = ""
+AWS_REGION     = ""
 ```
 
 `instance.tf`: 
 
 ```bash
 resource "aws_instance" "example" {
-  ami = "${lookup(var.AMIS, var.AWS_REGION)}"
-  #ami = "ami-0d729a60"
+  ami           = lookup(var.AMIS, var.AWS_REGION)
+  #ami          = "ami-0d729a60"
   instance_type = "t2.micro"
 }
 ```
 
 You can use [Cloud Images](https://cloud-images.ubuntu.com/locator/ec2) for an easy AMI lookup site. Alternatively just Google `ami lookup`.
 
+#### Include Variables in Command Line
+
+You can also include `-var` options on the terraform plan or terraform apply command line. 
+
+```bash
+terraform apply -var="image_id=ami-abc123"
+terraform apply -var='image_id_list=["ami-abc123","ami-def456"]'
+terraform apply -var='image_id_map={"us-east-1":"ami-abc123","us-east-2":"ami-def456"}'
+```
+
+You can also use `-var-file` to reference which variable file to use.
+
+`terraform apply -auto-approve -input=false -var-file=env_vars/itxdv.tfvars`
+
 # Resource Types
 
-`variable`: 
-
-`provider`: 
-
-`resource`: 
-
-`data`: 
-
-https://www.terraform.io/docs/configuration/data-sources.html
+- `variable`
+- `provider`
+- `resource`
+- [data](https://www.terraform.io/docs/configuration/data-sources.html)
+- [provisioner](https://www.terraform.io/docs/provisioners/index.html)
 
 ## Functions
 
@@ -301,7 +310,7 @@ File uploads is an easy way to upload a file or a script. It can be used in conj
 
 ```bash
 resource "aws_instance" "example" {
-  ami = "${lookup(var.AMIS, var.AWS_REGION)}"
+  ami = lookup(var.AMIS, var.AWS_REGION)
   instance_type = "t2.micro"
 
   provisioner "file" {
@@ -373,46 +382,40 @@ resource "aws_instance" "example" {
 }
 ```
 
-## Output Variables
+## Output Values
 
 Use output to display the public IP address of an AWS resource.
 
 ```bash
 resource "aws_instance" "example" {
-  ami = "${lookup(var.AMIS, var.AWS_REGION)}"
+  ami           = lookup(var.AMIS, var.AWS_REGION)
   instance_type = "t2.micro"
 }
 
 output "ip" {
-  value = "${aws_instance.example.public_ip}"
+  value = aws_instance.example.public_ip
 }
 ```
-
-## Remote State
-
-1. Add the backend code to a `.tf` file.
-2. Run the initiation procession.
 
 ## Terraform Cloud
 
 - [Overview of Terraform Cloud](https://learn.hashicorp.com/terraform/cloud-gettingstarted/tfc_overview)
 - [Terraform Cloud Documentation](https://www.terraform.io/docs/cloud/index.html)
 - [Connecting VCS Providers to Terraform Cloud](https://www.terraform.io/docs/cloud/vcs/index.html)
-- [Cost Estimation] (https://www.terraform.io/docs/cloud/getting-started/cost-estimation.html): Only for $70 plan.
+- [Cost Estimation](https://www.terraform.io/docs/cloud/getting-started/cost-estimation.html): Only appears for the $70 plan.
+- [Variables in Terraform Cloud](https://www.terraform.io/docs/cloud/workspaces/variables.html)
+- [Workspace Naming](https://www.terraform.io/docs/cloud/workspaces/naming.html): `<COMPONENT>-<ENVIRONMENT>-<REGION>`, i.e. `networking-prod-us-east`.
 
-A workspace name should tell your colleagues what the workspace is for. Most workspaces are a particular environment of a particular Terraform configuration, so the name should include both the name of the configuration and the name of the environment.
 
-In this example, we're using a configuration named "minimum" and we're deploying it in a production environment, so we named it minimum-prod.
+## Workspaces 
 
-## To Do
+A [workspace](https://www.terraform.io/docs/state/workspaces.html) name should tell your colleagues what the workspace is for. Most workspaces are a particular environment of a particular Terraform configuration, so the name should include both the name of the configuration and the name of the environment.
 
-- Figure out all ways to handle variables, then figure out best way.
-  - In a tf file (tfvars?).
-  - In a file and then reference it.
-  - Leondro: `terraform apply -auto-approve -input=false -var-file=env_vars/itxdv.tfvars` where you have the values in the .tfvars
-- How do we handle multiple environments?
-  - The plan, right now, is to have separate scripts for each env - and not using any type on conditionals/variables. So the first master were working on, which is a consolidation of all the various user TF's we've been generating, will be only for QA and the vars will be all QA specific. They will have variables, of course, for env specific vars - just not conditional vars based on an environment.
-- How to do serverless in Terraform.
-- Resource types: variable, data, input, output, etc.
-- [Multiple Workspaces](https://www.terraform.io/docs/state/workspaces.html)
-- Proper way to handle [credentials](https://www.terraform.io/docs/providers/aws/index.html)
+As an example, if we're using a configuration named "minimum" and we're deploying it in a production environment, we can name it minimum-prod.
+
+It's best practice to have different workspaces per environment, i.e. dev, production, QA.
+
+## Resources
+
+- [Terraform Best Practices](https://github.com/ozbillwang/terraform-best-practices)
+- [Terraform AWS Examples](https://github.com/terraform-providers/terraform-provider-aws/tree/master/examples)
