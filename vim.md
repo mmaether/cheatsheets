@@ -1,6 +1,6 @@
 # Vim Cheat Sheet
 
-[Vim](http://www.vim.org/) is a very efficient text editor. This reference was made for Vim 8.0. For shortcut notation, see `:help key-notation`. This is a fork from (rstacruz)[https://github.com/rstacruz/cheatsheets/blob/master/vim.md].
+[Vim](http://www.vim.org/) is a very efficient text editor. This reference was made for Vim 8.0. For shortcut notation, see `:help key-notation`. This is a fork from [rstacruz](https://github.com/rstacruz/cheatsheets/blob/master/vim.md).
 
 ## Getting started
 ---------------
