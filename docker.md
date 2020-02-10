@@ -4,23 +4,28 @@
 
 `docker ps`
 
+```
 CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS                PORTS                  NAMES
 a2506c9c4550        httpd                    "/usr/sbin/init"         4 days ago          Up 4 days             0.0.0.0:8000->80/tcp   httpd
 b7ca26bf433b        mysql/mysql-server:5.5   "/entrypoint.sh mysq…"   4 days ago          Up 4 days (healthy)   3306/tcp               cw-mysql
+```
 
 `docker ps --all`
 List all containers that we've ever created.
 
 `docker run` = `docker create` + `docker start`
 
+```
 docker create hello-world
 7fb44b5f5e7a7fcd1320d7c01de4e32479679d594ce97416ae6d70d3810a421a
+```
 
-docker start -a 7fb44b5f5e7a7fcd1320d7c01de4e32479679d594ce97416ae6d70d3810a421a
+`docker start -a 7fb44b5f5e7a7fcd1320d7c01de4e32479679d594ce97416ae6d70d3810a421a`
 
 `-a` = Attach to the container.
 
 `docker system prune`
+
 Delete all containers, all networks not used by at least one container, dangling images, and build cache.
 
 `docker logs <container id>`
