@@ -61,6 +61,7 @@ Command | Functionality | Output
 `docker logs <container id>` | Get logs from a container. | `docker logs e19f6f828ddc9254752388a474e50635db3cf4885cd7c3aa8d414d8ccd104ee6`
 
 ### docker exec
+
 Command | Functionality | Output
 ------- | ------------- | ------
 `docker exec <container> <command>` | Execute a command within the image. | `docker exec silly_sammet cat /etc/hosts`
@@ -132,3 +133,23 @@ Sometimes after running these commands, you may need to run `docker inspect <con
 You may also need to download a different version to get this to work.
 
 `docker run -p 8080:8080 -v /root/my-jenkins-data:/var/jenkins_home -u root jenkins/jenkins:lts`
+
+
+## Creating my own image
+
+1. INstall OS - Ubuntu
+2. Update apt repo
+3. Install dependencies using apt
+4. Install Python dependencies using pip
+5. Copy source code to /opt folder
+6. Run the server using "flask" command
+
+`docker build Dockerfile -t mmaether/my-custom-app`
+
+`docker build -t webapp-color .`
+
+`docker push mmaether/my-custom-app` - Add image to Docker Hub repo.
+
+`docker build . -t my-simple-webapp`
+
+`docker push mmaether/my-simple-webapp`: Publish to Docker Hub.
