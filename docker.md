@@ -29,7 +29,7 @@ Command | Functionality | Output
 
 Command | Functionality | Output
 ------- | ------------- | ------
-`docker create <image name>` | Creates a container from an image. | `docker create hello-world` <br><br>`Unable to find image 'hello-world:latest' locally` <br>`latest: Pulling from library/hello-world` <br>`1b930d010525: Pull complete` <br>`Digest: sha256:f9dfddf63636d84ef479d645ab5885156ae030f611a56f3a7ac7f2fdd86d7e4e` <br>`Status: Downloaded newer image for hello-world:latest` <br>`99686fc169930ed8edf67404fe8e11d289f7cc0efb444373182cd76f9e16932c`
+`docker create <image name>` | Creates a container from an image. | `docker create nginx`
 
 ### docker start
 
@@ -59,7 +59,18 @@ Command | Functionality | Output
 `docker images` | Display a list of all available images that have been downloaded.
 `docker pull <container id>` | Download the container immediately without checking if it exists locally first. | `docker pull nginx`
 `docker logs <container id>` | Get logs from a container. | `docker logs e19f6f828ddc9254752388a474e50635db3cf4885cd7c3aa8d414d8ccd104ee6`
+
+### docker exec
+Command | Functionality | Output
+------- | ------------- | ------
+`docker exec <container> <command>` | Execute a command within the image. | `docker exec silly_sammet cat /etc/hosts`
 `docker exec -it` | Execute an additional command in a container. |
+`docker exec -it 0d2ccab14d7d redis-cli`
+`docker exec -it 0d2ccab14d7d sh`
+
+Get shell.
+
+`docker run -it busybox sh`
 
 ## Clean Up
 
@@ -93,16 +104,6 @@ An **image** is a package or template, similar to a VM template. It is used to c
 **Containers** are running instances of images that are isolated and have their own environments and processes.
 
 ## To Categorize
-
-`docker exec -it 0d2ccab14d7d redis-cli`
-
-`docker exec -it 0d2ccab14d7d sh`
-
-`docker exec <container> <command>` | Execute a command within the image. | `docker exec silly_sammet cat /etc/hosts`
-
-Get shell.
-
-`docker run -it busybox sh`
 
 Writing a dockerfile is similar to being given a computer with no OS and being told to install Chrome.
 
