@@ -1,6 +1,6 @@
 # Site navigation
-docs_list_title: Cheat Sheets
-docs:
+- title: Home
+  url: /
 
 - title: Ableton
   url: ableton.md
