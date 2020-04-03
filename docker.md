@@ -13,14 +13,17 @@ Command | Explanation
 `<command>` | Command to execute.
 `-a` | Display all results. Attach this option to the container.
 
-## Manage Containers
+## Run Containers
 
 ### docker run
 
 Command | Functionality | Output
 ------- | ------------- | ------
-`docker run <image>` | Run a command in a new container.<br>`docker run` = `docker create` + `docker start` | `docker run mongodb` <br>`docker run redis` <br>`docker run nodejs`
-`docker run -d <image>`| Runs the image in a detached state, so that in the CLI you don't see its immediate output. | `docker run -d nginx`
+`docker run <image>` | Start a new container from an image.<br>`docker run` = `docker create` + `docker start` | `docker run nodejs`
+`docker run -d <image>`| Start a new container from an image in a detached state. You can continue to use the CLI without seeing its immediate output. | `docker run -d nginx`
+`docker run --name <container name> <image>` | Assign the container a name. | `docker run --name webapp nginx`
+`docker run -p <host port>:<container port> <image>` | Map the container's ports. | `docker run -p 8080:80 nginx`
+`docker run -P <image>` | Map all ports. | `docker run -P nginx`
 
 ### docker create
 
@@ -34,12 +37,14 @@ Command | Functionality | Output
 ------- | ------------- | ------
 `docker start -a <id>` | Start a container. | `docker start -a 7fb44b5f5e7a7fcd1320d7c01de4e32479679d594ce97416ae6d70d3810a421a`
 
+## Manage Containers
+
 ### docker ps
 
 Command | Functionality | Output
 ------- | ------------- | ------
 `docker ps` | List containers. | See table below.
-`docker ps --all` or `docker ps -a` | List all containers, even if they've been stopped or exited. | See table above.
+`docker ps --all` or `docker ps -a` | List all containers, even if they've been stopped or exited. | See table below.
 
 ```
 CONTAINER ID   IMAGE                    COMMAND                  CREATED      STATUS                PORTS                  NAMES
@@ -54,7 +59,6 @@ Command | Functionality | Output
 `docker logs <container id>` | Get logs from a container. | `docker logs e19f6f828ddc9254752388a474e50635db3cf4885cd7c3aa8d414d8ccd104ee6`
 `docker exec -it` | Execute an additional command in a container. |
 `docker images` | Display a list of all available images that have been downloaded.
-`docker rmi <image>` | Remove the image permanently. | `docker rmi nginx`
 `docker pull <container id>` | Download the container immediately without checking if it exists locally first. | `docker pull nginx`
 
 ## Clean Up
@@ -71,15 +75,16 @@ Command | Functionality
 Command | Functionality
 ------- | -------------
 `docker stop <container id>` | Stop a container. If it doesn't shut down in 10 seconds it will automatically kill the container.
+`docker kill <container id>` | Kill a container. |
+`docker rm <container id>` | Removes a container. | `docker rm silly_sammet`
 `docker container prune` | Delete stopped containers.
 
 ### Clean Images
 
 Command | Functionality
 ------- | -------------
+`docker rmi <image>` | Remove the image permanently. | `docker rmi nginx`
 `docker image prune -a` | Delete all the images.
-`docker kill <container id>` | Kill a container. |
-`docker rm <container id>` | Removes a container. | `docker rm silly_sammet`
 
 ## Images vs. Container
 
