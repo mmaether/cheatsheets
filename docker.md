@@ -118,3 +118,17 @@ Command, path to folder to copy from on *your machine* relative to build context
 ![Docker port mapping](images/docker-port-mapping.jpg)
 
 ![Docker persist data](images/docker-persist-data.jpg)
+
+## Common Images
+
+### Jenkins
+
+[Jenkins](https://hub.docker.com/_/jenkins/):
+
+`docker run -p 8080:8080 jenkins`, then go to `localhost:8080`
+
+Sometimes after running these commands, you may need to run `docker inspect <container id>` to find the IPAddress.
+
+You may also need to download a different version to get this to work.
+
+`docker run -p 8080:8080 -v /root/my-jenkins-data:/var/jenkins_home -u root jenkins/jenkins:lts`
