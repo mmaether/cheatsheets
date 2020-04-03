@@ -52,14 +52,14 @@ a2506c9c4550   httpd                    "/usr/sbin/init"         4 days ago   Up
 b7ca26bf433b   mysql/mysql-server:5.5   "/entrypoint.sh mysq…"   4 days ago   Up 4 days (healthy)   3306/tcp               cw-mysql
 ```
 
-### docker logs
+### Manage Various
 
 Command | Functionality | Output
 ------- | ------------- | ------
-`docker logs <container id>` | Get logs from a container. | `docker logs e19f6f828ddc9254752388a474e50635db3cf4885cd7c3aa8d414d8ccd104ee6`
-`docker exec -it` | Execute an additional command in a container. |
 `docker images` | Display a list of all available images that have been downloaded.
 `docker pull <container id>` | Download the container immediately without checking if it exists locally first. | `docker pull nginx`
+`docker logs <container id>` | Get logs from a container. | `docker logs e19f6f828ddc9254752388a474e50635db3cf4885cd7c3aa8d414d8ccd104ee6`
+`docker exec -it` | Execute an additional command in a container. |
 
 ## Clean Up
 
@@ -111,10 +111,6 @@ Tag an image
 
 `copy ./ ./`
 Command, path to folder to copy from on *your machine* relative to build context, Place to copy stuff to inside *the container*.
-
-`docker run -p 8080:8080 <image id>`
-`docker run -p 8080:8080 mmaether/simpleweb`
-Route incoming requests to this port on local host to... this port inside the container.
 
 ## Port Mapping
 
