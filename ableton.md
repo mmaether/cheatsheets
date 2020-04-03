@@ -1,8 +1,3 @@
----
-layout: page
-title: Ableton
----
-
 # Ableton
 
 Notes from [learning Ableton](https://learningmusic.ableton.com/).
