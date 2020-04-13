@@ -278,6 +278,8 @@ Selector | Inline | IDs | Classes | Elements | Total
 </figure>
 ```
 
+[BEM Naming Cheat Sheet](https://9elements.com/bem-cheat-sheet/)
+
 ### Architecture
 
 Create 7 different folders for partial Sass files, and 1 main Sass file to import all other files into a compiled CSS stylesheet.
