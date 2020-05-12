@@ -52,6 +52,100 @@ A test description / acceptance criteria will help understand what exactly is ex
 
 **Backlog Grooming** is an older term that has been deprecated since 2003. The term Refinement is preferred. We say that the Product Backlog is refined rather than groomed.
 
+Story Points are often represented as the fibonnaci sequence. 0, 1, 2, 3, 5, 8, 13, 20, 40, and 100.
+
+**Planning Poker**: The development team has a set of cards similar to poker cards with the Fibonnaci sequence. They will show their cards at the same time to estimate a user story.
+
+If there is a disagreement, typically the lowest number and the highest number discuss their reasoning.
+
+### Sprint Backlog
+
+The Product Owner explains which items will achieve the sprint goal, but the development team will determine who.
+
+The development team owns the sprint backlog.
+
+**Increment**: All the Product Backlog items completed during a sprint + the value of all increments from all previous sprints.
+
+The development team creates the definition of done.
+
+## Scrum Events
+
+**Sprint**:
+
+- Container for all events.
+- Has a time-box of one month or less.
+- Most sprints are only two or three weeks long.
+
+**Sprint Goal**: Objective that should be reached within the timeline. During the sprint, no changes should be made that would endanger the Sprint goal.
+
+The new sprint starts immediately after the current sprint ends.
+
+**Cancelling**: Very rare occurrance. A Sprint can be cancelled if the Sprint Goal becomes obsolete (i.e. market changes). Only the Product Owner has the authority to cancel a sprint.
+
+If cancelled, product backlog items will be re-estimated and put back in the Product Backlog.
+
+**Sprint Planning**:
+
+- Right after conclusion of previous sprint.
+- Time boxed to 8 hours for 1 month sprint.
+- For smaller sprints it should be shorter.
+- Determine what can be delivered, and how to make it happen with a plan.
+- Two parts: PO presents objective that a sprint should achieve and a product backlog items, that if completed, would complete the objective.
+- 1. What can be done in the Sprint. This is forcasted by the development team
+- 2. How to implement the work.
+
+Inputs for the sprint planning meeting:
+
+- Latest product increment
+- Product Backlog
+- Projected capacity: availability of the developers, holidays, etc.
+- Past performance
+
+Also Definition of Done for sprint planning.
+
+**Daily Scrum**:
+
+- What did I do yesterday?
+- What will I do today?
+- Do I see any impediments?
+
+The development team should begin the Daily Scrum. The Product Owner should not be present, it is meant for the developers.
+
+**Sprint review**:
+
+Held at the end of the sprint to review the increment. Product Owner holds this meeting and invites stakeholders to the event. Maximum of 4 hours for 1 month's sprint.
+
+Informal meeting. Demonstration fo the increment and to encourage collaboration on what happens next.
+
+Product Owner explains items that have been done and have not been done. He maximizes the value of the product.
+
+The development team demonstrates the work that's been accomplished and to gather feedback. Often the stakeholders can try the product with their hands.
+
+The development team discusses what went well and what didn't go well.
+
+The product owner discusses the backlog and explains when the next release may occur. Discuss strategic planning with stakeholders. Stakeholders can ask questions and ask to revise the product.
+
+Items that are not done: they will not be demonstrated. They will not be part of the product increment as they do not follow the definition of done. Put back into the Product Backlog and the Product Owner determines what happens with it.
+
+**Sprint retro**:
+
+Inspect and adapt the process. Internal scrum team event with no external team members. 1 month sprint, the maximum duration is 3 hours.
+
+Maximum of 3 hours for a 1 month sprint.
+
+- How was the sprint in regard to people, relationship, processes and tools.
+- What went well?
+- What didn't go well?
+- How can we improve?
+
+It's recommended to use an ice breaker, such as funretrospective.com
+
+## Roles
+
+The primary responsibility of the Product Owner is to maximize the value. It is 1 person.
+
+The development team is self-organzing. No one else tells them what tools to use, etc. The team as a whole should be cross-functional. Responsible as a whole. No official titles for these individuals. You want between 3 and 9 development members. Product Owner and Scrum Masters are not included in this count.
+
 ## Understanding and Applying the Scrum Framework
 
 ### Empiricism
@@ -174,3 +268,4 @@ Scrum Theory 56%
 - [Evidence-Based Management Guide](https://www.scrum.org/resources/evidence-based-management-guide)
 - [Myth 2: The Sprint Backlog can’t change during the Sprint](https://www.scrum.org/resources/blog/myth-2-sprint-backlog-cant-change-during-sprint)
 - [Scrum Trenches - Sprint Goals](https://www.scrum.org/resources/blog/scrum-trenches-sprint-goal)
+- [Nexus Guide](https://www.scrum.org/resources/online-nexus-guide)
