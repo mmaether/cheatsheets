@@ -146,6 +146,129 @@ The primary responsibility of the Product Owner is to maximize the value. It is 
 
 The development team is self-organzing. No one else tells them what tools to use, etc. The team as a whole should be cross-functional. Responsible as a whole. No official titles for these individuals. You want between 3 and 9 development members. Product Owner and Scrum Masters are not included in this count.
 
+## Agile
+
+[Manifesto for Agile Software Development](https://agilemanifesto.org/)
+
+>We are uncovering better ways of developing software by doing it and helping others do it. Through this work we have come to value:
+>
+>Individuals and interactions over processes and tools
+>Working software over comprehensive documentation
+>Customer collaboration over contract negotiation
+>Responding to change over following a plan
+>
+>That is, while there is value in the items on the right, we value the items on the left more.
+
+[Principles Behind the Agile Manifesto](https://agilemanifesto.org/principles.html).
+
+>We follow these principles:
+>
+>Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.
+>
+>Welcome changing requirements, even late in development. Agile processes harness change for the customer's competitive advantage.
+>
+>Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.
+>
+>Business people and developers must work together daily throughout the project.
+>
+>Build projects around motivated individuals. Give them the environment and support they need, and trust them to get the job done.
+>
+>The most efficient and effective method of conveying information to and within a development team is face-to-face conversation.
+>
+>Working software is the primary measure of progress.
+>
+>Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely.
+>
+>Continuous attention to technical excellence and good design enhances agility.
+>
+>Simplicity--the art of maximizing the amount of work not done--is essential.
+>
+>The best architectures, requirements, and designs emerge from self-organizing teams.
+>
+>At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly.
+
+## Scrum
+
+Scrum is a framework. It is not a propcess, technique, or definitive method.
+
+Scrum is:
+
+- Lightweight
+- Simple to understand
+- Difficult to master
+
+Scrum is founded on empiricism. Empiricism asserts that knowledge comes from **experience**.
+
+Three pillars of the empirical process control:
+
+- Transparency: We all know what's going on.
+- Inspection: Check your work as you do it. Scrum users must regularly inspect Scrum artifacts (product backlog, sprint backlog, the increment) and progress toward a Sprint Goal to detect undesirable results.
+- Adaptation: OK to change tactical direction.
+
+Scrum prescribes four formal events for inspection and adaptation:
+
+- Sprint Planning
+- Daily Scrum
+- Sprint Review
+- Sprint Retrospective
+
+The Scrum Teams should be built on the following values:
+
+- Commitment
+- Courage
+- Focus
+- Openness
+- Respect
+
+=> TRUST
+
+## Evidence-Based Management Guide
+
+Masures the impact made to the Product have delivered. 
+
+Source: https://www.scrum.org/resources/evidence-based-management-guide
+
+### Current Value (CV)
+
+Reveals the value that the Product delivers to customers right now.
+
+Example Key Value Measures (KVMs)
+
+- Customer Usage Index - measures which features of the product are actually used and which are not
+- Customer Satisfaction - a quantifiable way to understanding if customers are happy with the Product. For example a monthly survey can help keep track of this metric
+
+### Time-to-Market (T2M)
+
+Some industries tend to move at a quick fast pace, so it is essential to know the ability of the organization to deliver new features, services, or products in a timely manner.
+
+So the focus here is to minimize the Time-to-Market. Here are a few metrics that can help an organization manage the Time-to-Market.
+
+- **Build and integration frequency and Release Frequency** - if work is only tested and integrate once a month, the time-to-market for any feature will be at least one month. In software development (and not only) many development teams have adopted a practice called continuous deployment, which allows them to continuously integrate the work if the work of other teams, to test it, and to release it to end-users, sometimes up to 50 times per day.
+
+### Ability to Innovate (A2I)
+
+The ability to innovate tries to measure the capability of the organization to come up with new and innovative solutions to customer problems.
+
+The focus of this Key Value Area is to look at what is preventing the Development Organization to do this. Typical causes for this can include technical debt that is out of control, an outdated application architecture but also a lack of skills or quality standards within the organization.
+
+Let's take one example Key Value Measure
+
+- **Defect trends** - defects or commonly called bugs in software development, are things that don't work as intended. If severe enough, defects can prevent the end-user from performing a specific task and reduces the value of the product.
+
+### Unrealized Value (UV)
+
+Reveals the potential value that the Product could deliver to customers in the future.
+
+The goal is to identify the unrealized value and to convert it to current value.
+
+A Product with a low current value and a high Unrealized Value may indicate a great market potential.
+
+An example KVM is:
+
+- The **Market Share** of the Product, which indicates how much of a specific market is controlled by the Product.
+
+---------------------------------
+
 ## Understanding and Applying the Scrum Framework
 
 ### Empiricism
@@ -259,6 +382,56 @@ Scrum Events 70.59%
 Scrum Team 75%
 Scrum Theory 56%
 
+Take 2:
+
+Product Owner 100%
+Scrum Artifacts 87.5%
+Scrum Events 82.35%
+Scrum Team 75%
+Scrum Theory 76%
+
+
+The time-box for the Sprint Planning meeting is?
+8 hours for a monthly Sprint. For shorter Sprints it is usually shorter. 
+
+What are the time-boxes for the Sprint Review and the Sprint Retrospective?
+4 and 3 hours respectively 
+
+Five Scrum Values
+
+What are the Scrum Artifacts? Select all applicable items.
+
+Product Backlog Refinement timebox (10%?)
+
+How long should the Sprint Planning be?
+Not more than 8 hours 
+
+Select the two focus areas that are not considered in executing Value Driven Development by the Product Owner.
+Coach of the Development Team in self-organization and cross-functionality 
+Remover of impediments to the Development Team’s progress 
+
+Definition of Done
+Non-Functional Specifications
+How should the Development Team make non-functional specifications transparent towards the Product Owner?
+
+Scrum Team Values:
+- Commitment
+- Courage
+- Focus
+- Openness
+- Respect
+
+Timeboxed events for 1 month:
+
+- The Sprint: The heart of Scrum is a Sprint, a time-box of one month or less 
+- Sprint Planning is time-boxed to a maximum of eight hours for a one-month Sprint
+- The Daily Scrum is a 15-minute time-boxed event 
+- Sprint Review: This is at most a four-hour meeting for one-month Sprints
+- Sprin Retro: This is at most a three-hour meeting for one-month Sprints
+
+
+
+
 
 ## Resources
 
@@ -269,3 +442,4 @@ Scrum Theory 56%
 - [Myth 2: The Sprint Backlog can’t change during the Sprint](https://www.scrum.org/resources/blog/myth-2-sprint-backlog-cant-change-during-sprint)
 - [Scrum Trenches - Sprint Goals](https://www.scrum.org/resources/blog/scrum-trenches-sprint-goal)
 - [Nexus Guide](https://www.scrum.org/resources/online-nexus-guide)
+- [PSPO 1 Preparation Quiz](https://mlapshin.com/index.php/scrum-quizzes/po-real-mode/)
