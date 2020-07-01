@@ -65,9 +65,7 @@ Command | Functionality | Output
 Command | Functionality | Output
 ------- | ------------- | ------
 `docker exec <container> <command>` | Execute a command within the image. | `docker exec silly_sammet cat /etc/hosts`
-`docker exec -it` | Execute an additional command in a container. |
-`docker exec -it 0d2ccab14d7d redis-cli`
-`docker exec -it 0d2ccab14d7d sh`
+`docker exec -it` | Execute an additional command in a container. | `docker exec -it 0d2ccab14d7d redis-cli` or `docker exec -it 0d2ccab14d7d sh`
 
 Get shell.
 
