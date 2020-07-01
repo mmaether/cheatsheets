@@ -132,10 +132,9 @@ You may also need to download a different version to get this to work.
 
 `docker run -p 8080:8080 -v /root/my-jenkins-data:/var/jenkins_home -u root jenkins/jenkins:lts`
 
-
 ## Creating my own image
 
-1. INstall OS - Ubuntu
+1. Install OS - Ubuntu
 2. Update apt repo
 3. Install dependencies using apt
 4. Install Python dependencies using pip
