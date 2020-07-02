@@ -26,3 +26,17 @@ Select the column | `Ctrl + Spacebar`
 Select the row | `Shift + Spacebar`
 Add new row or column | `Ctrl + Shift + Plus Sign (+)`
 Remove a row or column | `Crtl + -`
+
+## References
+
+Relative Reference: Based on a specific location.
+
+Absolute Reference:
+
+`=E4/$E$9 * 100`
+
+## Conditional Formatting
+
+1. Highlight the cells.
+2. Home > Styles > Conditional Formatting
+
