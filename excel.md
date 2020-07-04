@@ -40,3 +40,6 @@ Absolute Reference:
 1. Highlight the cells.
 2. Home > Styles > Conditional Formatting
 
+## Data Visualization
+
+Pie charts are good for a single column or row.
