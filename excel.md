@@ -43,3 +43,20 @@ Absolute Reference:
 ## Data Visualization
 
 Pie charts are good for a single column or row.
+
+## Custom Sorts
+
+If you have a column with the month spelled out, if you sort it ASC it will make it alphabetical. Excel has a built-in way to support sorting on the actual month values though.
+
+1. Go to Data > Sort & Filter > Sort
+2. Under Order click on "Custom List..."
+3. Select the custom list.
+4. Select the applicable list.
+
+## Subtotal
+
+The Subtotal command allows you to automatically create groups and use common functions like SUM, COUNT, and AVERAGE to help summarize your data. For example, the Subtotal command could help to calculate the cost of office supplies by type from a large inventory order. It will create a hierarchy of groups, known as an outline, to help organize your worksheet.
+
+https://edu.gcfglobal.org/en/excel2016/groups-and-subtotals/1/
+
+Go to Data > Subtotal.
