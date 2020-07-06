@@ -12,8 +12,8 @@ Evaluate Formulas: This is a great tool to debug formulas. It's similar to code 
 
 Function Name | Description | Example
 ------------- | ----------- | -------
-[SUM](https://support.microsoft.com/en-us/office/sum-function-043e1c7d-7726-4e80-8f32-07b23e057f89) | The SUM function adds values. You can add individual values, cell references or ranges or a mix of all three. | `=SUM(A2:A10)` Adds the values in cells A2:10. |
-[MIN](#) | awef | asdfafd
+[SUM](https://support.microsoft.com/en-us/office/sum-function-043e1c7d-7726-4e80-8f32-07b23e057f89) | The SUM function adds values. You can add individual values, cell references or ranges or a mix of all three. | `=SUM(A2:A10)` |
+[MIN](#) | Returns the smallest number in a set of values. | `=MIN(A2:A6)`
 
 ## Shortcuts
 
@@ -26,14 +26,45 @@ Select the column | `Ctrl + Spacebar`
 Select the row | `Shift + Spacebar`
 Add new row or column | `Ctrl + Shift + Plus Sign (+)`
 Remove a row or column | `Crtl + -`
+Highlight all cells above the currently selected cell  | `Ctrl + Shift + Up`
+Highlight all cells below the currently selected cell  | `Ctrl + Shift + Down`
+Highlight all cells to the right of the currently selected cell  | `Ctrl + Shift + Right`
+Highlight all cells to the left of the currently selected cell  | `Ctrl + Shift + Left`
 
 ## References
 
-Relative Reference: Based on a specific location.
+There are two types of cell references: relative and absolute. 
 
-Absolute Reference:
+1. Relative references change when a formula is copied to another cell. 
+2. Absolute references remain constant no matter where they are copied.
 
-`=E4/$E$9 * 100`
+### Relative References
+
+By default, all cell references are **relative references**. When copied across multiple cells, they change based on the relative position of rows and columns. 
+
+For example, if you copy the formula `=A1+B1` from row 1 to row 2, the formula will become `=A2+B2`. Relative references are especially convenient whenever you need to repeat the same calculation across multiple rows or columns.
+
+### Absolute Reference
+
+There may be times when you do not want a cell reference to change when filling cells. Unlike relative references, **absolute references** do not change when copied or filled. You can use an absolute reference to keep a row and/or column constant.
+
+Reference | Description
+--------- | -----------
+$A$2 | The column and the row do not change when copied.
+A$2 | The row does not change when copied.
+$A2 | The column does not change when copied.
+
+See Also:
+
+- [GCF Learn Free Relative and Absolute Cell References](https://edu.gcfglobal.org/en/excel2016/relative-and-absolute-cell-references/1/)
+
+## Cell References with Multiple Worksheets
+
+Excel allows you to refer to any cell on any worksheet, which can be especially helpful if you want to reference a specific value from one worksheet to another. To do this, you'll simply need to begin the cell reference with the worksheet name followed by an exclamation point (!). 
+
+For example, if you wanted to reference cell `A1` on `Sheet1`, its cell reference would be `Sheet1!A1`.
+
+>Note that if a worksheet name contains a space, you'll need to include single quotation marks (' ') around the name. For example, if you wanted to reference cell `A1` on a worksheet named `July Budget`, its cell reference would be `'July Budget'!A1`.
 
 ## Conditional Formatting
 
@@ -60,3 +91,112 @@ The Subtotal command allows you to automatically create groups and use common fu
 https://edu.gcfglobal.org/en/excel2016/groups-and-subtotals/1/
 
 Go to Data > Subtotal.
+
+## Duplicates
+
+Select cells. Go to Conditional Formatting, highlight duplicates.
+
+If the list is a table, under the Design tab there is a Remove Duplicates button under Tools.
+
+Or Data > Remove Duplicates
+
+## DSUM
+
+Sum up the total sales, but only where a category is equal to something.
+
+Summing up a set of cells based on criteria. Database Sum.
+
+## DSUBTOTAL
+
+If you have a table of data, it will displays accurately if the list is sorted.
+
+## PivotTable
+
+
+A PivotTable allows you to extract the significance from a large, detailed data set.
+
+### Insert a PivotTable
+
+1. Click any single cell inside the data set.
+2. Go to Insert > Tables > PivotTable.
+
+![Insert PivotTable](images/excel/insert-pivot-table.png)
+
+3. The following dialog box appears. Excel automatically selects the data for you. The default location for a new pivot table is New Worksheet.
+
+![Insert PivotTable](images/excel/create-pivot-table-dialog-box.png)
+
+### Drag Fields
+
+To add a field to your PivotTable, select the field name checkbox in the PivotTables Fields pane.
+
+To move a field from one area to another, drag the field to the target area.
+
+![PivotTable Fields](images/excel/pivot-table-fields.png)
+
+### Drill Down
+
+Within a PivotTable, if you double click on any cell, it will create a new worksheet with more details about how that cell is calculated.
+
+### Slicers
+
+Slicers make filtering data in PivotTables even easier. Slicers are basically just filters, but they're easier and faster to use, allowing you to instantly pivot your data. If you frequently filter your PivotTables, you may want to consider using slicers instead of filters.
+
+1. Select any cell in the PivotTable.
+2. From the Analyze tab, click the **Insert Slicer** command.
+3. A dialog box will appear. Select the desired field. 
+4. The slicer will appear next to the PivotTable.
+
+![PivotTable Slicer](images/excel/pivot-table-slicer.png)
+
+## PivotCharts
+
+PivotCharts are like regular charts, except they display data from a PivotTable. Just like regular charts, you'll be able to select a chart type, layout, and style that will best represent the data.
+
+1. Select any cell in your PivotTable.
+2. From the Insert tab, click the PivotChart command.
+3. The Insert Chart dialog box will appear. Select the desired chart type and layout, then click OK.
+4. The PivotChart will appear.
+
+![PivotChart](images/excel/pivotchart-table.png)
+
+See Also:
+
+- [GCF Learn Free Excel - Intro to PivotTables](https://edu.gcfglobal.org/en/excel2016/intro-to-pivottables/1/)
+- [Create a PivotTable to analyze worksheet data](https://support.microsoft.com/en-us/office/create-a-pivottable-to-analyze-worksheet-data-a9a84538-bfe9-40a9-a8e9-f99134456576)
+
+## Power Pivot
+
+Power Pivot is a data modeling technology that lets you create data models, establish relationships, and create calculations. With Power Pivot you can work with large data sets, build extensive relationships, and create complex (or simple) calculations, all in a high-performance environment.
+
+### Enabling Power Pivot
+
+Power Pivot must be enabled in Excel to be able to use it.
+
+1. Go to File > Options > Add-Ins.
+2. In the Manage box, click COM Add-ins> Go.
+3. Check the Microsoft Office Power Pivot box, and then click OK.
+
+### Getting Started with Power Pivot
+
+When the Power Pivot add-on is enabled, the Power Pivot tab in the ribbon is available, as shown in the following image.
+
+![The Power Pivot Ribbon](images/excel/power-pivot-ribbon.png)
+
+From the **Power Pivot** ribbon tab, select **Manage** from the **Data Model** section.
+
+When you select **Manage**, the **Power Pivot window** appears, which is where you can view and manage the data model, add calculations, establish relationships, and see elements of your Power Pivot data model. A **data model** is a collection of tables or other data, often with established relationships among them. The following image shows the **Power Pivot window** with a table displayed.
+
+![Power Pivot Window](images/excel/power-pivot-window.png)
+
+The **Power Pivot window** can also establish, and graphically represent, relationships between the data included in the model. By selecting the **Diagram view** icon from the bottom right side of the **Power Pivot window**, you can see the existing relationships in the Power Pivot data model. The following image shows the **Power Pivot window** in **Diagram view**.
+
+![Power Pivot Diagram](images/excel/power-pivot-diagram.png)
+
+With a Power Pivot, you can create a PivotTable that uses multiple worksheets.
+
+See Also:
+
+- [Power Pivot Overview and Learning](https://support.microsoft.com/en-us/office/power-pivot-overview-and-learning-f9001958-7901-4caa-ad80-028a6d2432ed)
+- [Create a Data Model in Excel](https://support.microsoft.com/en-us/office/create-a-data-model-in-excel-87e7a54c-87dc-488e-9410-5c75dbcb0f7b)
+- [Key Performance Indicators in Power Pivot](https://support.microsoft.com/en-us/office/key-performance-indicators-kpis-in-power-pivot-e653edef-8a21-40e4-9ece-83a6c8c306aa)
