@@ -6,6 +6,7 @@
 - [Git](git.md)
 - [MySQL](mysql.md)
 - [Neo4J](neo4j.md)
+- [nginx](nginx.md)
 - [node.js](nodejs.md)
 - [Product Owner](product-owner.md)
 - [Protocol Buffers](protocol-buffers/protocol-buffers.md)
@@ -15,3 +16,4 @@
 - [Terraform](terraform.md)
 - [Vim](vim.md)
 - [Web Design](web-design.md)
+- [Windows Subsystem for Linux](wsl.md)
