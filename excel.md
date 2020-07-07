@@ -200,3 +200,30 @@ See Also:
 - [Power Pivot Overview and Learning](https://support.microsoft.com/en-us/office/power-pivot-overview-and-learning-f9001958-7901-4caa-ad80-028a6d2432ed)
 - [Create a Data Model in Excel](https://support.microsoft.com/en-us/office/create-a-data-model-in-excel-87e7a54c-87dc-488e-9410-5c75dbcb0f7b)
 - [Key Performance Indicators in Power Pivot](https://support.microsoft.com/en-us/office/key-performance-indicators-kpis-in-power-pivot-e653edef-8a21-40e4-9ece-83a6c8c306aa)
+
+## Name Manager
+
+You can create variables with the textbox to the left of the formula bar.
+
+## IF() Function
+
+Explain function. Maybe use table above.
+
+`=IF(F5>=Goal,"YES","NO")`
+
+## AND Function
+
+`COUNTIF()`
+
+`SUMIF()`
+
+## Errors
+
+Error | Explanation
+----- | -----------
+`#VALUE!` | "There's something wrong with the way your formula is typed. Or, there's something wrong with the cells you are referencing." The error is very general, and it can be hard to find the exact cause of it. [Troubleshoot](https://support.microsoft.com/en-us/office/how-to-correct-a-value-error-15e1b616-fbf2-4147-9c0b-0a11a20e409e)
+`#NUM!` | Excel shows this error when a formula or function contains numeric values that aren’t valid. [Troubleshoot](https://support.microsoft.com/en-us/office/how-to-correct-a-num-error-f5193bfc-4400-43f4-88c4-8e1dcca0428b)
+`#N/A` | The `#N/A` error generally indicates that a formula can’t find what it’s been asked to look for. [Troubleshoot](https://support.microsoft.com/en-us/office/how-to-correct-a-n-a-error-a9708411-f82e-4e1b-8a7e-28c28311b993)
+`#REF!` | The `#REF!` error shows when a formula refers to a cell that’s not valid. This happens most often when cells that were referenced by formulas get deleted, or pasted over. [Troubleshoot](https://support.microsoft.com/en-us/office/how-to-correct-a-ref-error-822c8e46-e610-4d02-bf29-ec4b8c5ff4be)
+`#NAME?` | The top reason why the #NAME? error appears in your formula is because there is a typo in the formula name. [Troubleshoot](https://support.microsoft.com/en-us/office/how-to-correct-a-name-error-b6d54e31-a743-4d7d-9b61-40002a7b4286)
+`#####` | Excel might show `#####` in cells when a column isn’t wide enough to show all of the cell contents. Formulas that return dates and times as negative values can also show as #####. [Troubleshoot](https://support.microsoft.com/en-us/office/how-to-correct-a-error-bf801d0a-2a6e-44bd-a70e-0f780ae8f11e)
