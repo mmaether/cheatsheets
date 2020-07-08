@@ -226,11 +226,15 @@ Examples:
 `VLOOKUP()` parameters:
 
 - `Lookup_value`: Typically the ID to reference another table.
-- Table_array: The entire table that you are referencing in another worksheet.
-- Col_index_num: The column number that you want to pull from the other worksheet. This is base 1.
-- Range_lookup: If you want an exact match use "FALSE", otherwise use "TRUE". Most often we'll use FALSE.
+- `Table_array`: The entire table that you are referencing in another worksheet. The `lookup_value` must be the found in the first column of this table.
+- `Col_index_num`: The column number that you want to pull from the other worksheet. This is base 1.
+- `Range_lookup`: If you want an exact match use "FALSE", otherwise use "TRUE". Most often we'll use FALSE.
 
 `HLOOKUP()`: Look up values in another worksheet **horizontally**. This follows the same format as `VLOOKUP()`, but is just horizontal.
+
+`INDEX()`: Returns a value at a specific position in a list. You provide the cells to search, then the row and column number (e.g. 4). This pinpoints an exact match in the spreadsheet. This most likely will not be used often on its own.
+
+`MATCH()`: Returns a numeric position of a value. It's the opposite of `INDEX()` where you provide a value, and it tells you which field it's in.
 
 ## Errors
 
