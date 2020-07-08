@@ -33,14 +33,14 @@ Highlight all cells to the left of the currently selected cell  | `Ctrl + Shift 
 
 ## References
 
-There are two types of cell references: relative and absolute. 
+There are two types of cell references: relative and absolute.
 
-1. Relative references change when a formula is copied to another cell. 
+1. Relative references change when a formula is copied to another cell.
 2. Absolute references remain constant no matter where they are copied.
 
 ### Relative References
 
-By default, all cell references are **relative references**. When copied across multiple cells, they change based on the relative position of rows and columns. 
+By default, all cell references are **relative references**. When copied across multiple cells, they change based on the relative position of rows and columns.
 
 For example, if you copy the formula `=A1+B1` from row 1 to row 2, the formula will become `=A2+B2`. Relative references are especially convenient whenever you need to repeat the same calculation across multiple rows or columns.
 
@@ -60,7 +60,7 @@ See Also:
 
 ## Cell References with Multiple Worksheets
 
-Excel allows you to refer to any cell on any worksheet, which can be especially helpful if you want to reference a specific value from one worksheet to another. To do this, you'll simply need to begin the cell reference with the worksheet name followed by an exclamation point (!). 
+Excel allows you to refer to any cell on any worksheet, which can be especially helpful if you want to reference a specific value from one worksheet to another. To do this, you'll simply need to begin the cell reference with the worksheet name followed by an exclamation point (!).
 
 For example, if you wanted to reference cell `A1` on `Sheet1`, its cell reference would be `Sheet1!A1`.
 
@@ -144,7 +144,7 @@ Slicers make filtering data in PivotTables even easier. Slicers are basically ju
 
 1. Select any cell in the PivotTable.
 2. From the Analyze tab, click the **Insert Slicer** command.
-3. A dialog box will appear. Select the desired field. 
+3. A dialog box will appear. Select the desired field.
 4. The slicer will appear next to the PivotTable.
 
 ![PivotTable Slicer](images/excel/pivot-table-slicer.png)
@@ -216,6 +216,21 @@ Explain function. Maybe use table above.
 `COUNTIF()`
 
 `SUMIF()`
+
+`VLOOKUP()`: Look up values in another worksheet **vertically**. This is often helpful if you are trying to pull exact values from one worksheet to another.
+
+Examples:
+
+`=VLOOKUP($B3,'Master Emp List'!$A$1:$I$38,2,FALSE)`
+
+`VLOOKUP()` parameters:
+
+- `Lookup_value`: Typically the ID to reference another table.
+- Table_array: The entire table that you are referencing in another worksheet.
+- Col_index_num: The column number that you want to pull from the other worksheet. This is base 1.
+- Range_lookup: If you want an exact match use "FALSE", otherwise use "TRUE". Most often we'll use FALSE.
+
+`HLOOKUP()`: Look up values in another worksheet **horizontally**. This follows the same format as `VLOOKUP()`, but is just horizontal.
 
 ## Errors
 
