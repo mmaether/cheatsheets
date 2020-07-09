@@ -102,3 +102,10 @@ WantedBy=multi-user.target
 - Context: Sections within the configuration. Directives can be set within the context. Contexts can be nested.
 
 ![Main context](images/nginx/context.png)
+
+Types of Contexts:
+
+- Main Context: Where we set global directives that apply to the master process.
+- http context: Anything HTTP related
+- server: Where we dfine a virtual host, similar to an Apache VHost
+- location: For matching URI locations on incoming requests to the parent server context.

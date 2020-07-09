@@ -1,7 +1,5 @@
 # Excel
 
-A cheatsheet for Excel, because although it's mostly straightforward, most people don't take the time to go in depth to learn all the functionality it has.
-
 ## Formulas
 
 Every formula has the following 3 parts:
@@ -10,10 +8,75 @@ Every formula has the following 3 parts:
 
 Evaluate Formulas: This is a great tool to debug formulas. It's similar to code debugging where you can step in to a formula and see at each step what a formula returns. This can be found at `Formulas` > `Formula Auditing` > `Evaluate Formulas`.
 
-Function Name | Description | Example
-------------- | ----------- | -------
-[SUM](https://support.microsoft.com/en-us/office/sum-function-043e1c7d-7726-4e80-8f32-07b23e057f89) | The SUM function adds values. You can add individual values, cell references or ranges or a mix of all three. | `=SUM(A2:A10)` |
-[MIN](#) | Returns the smallest number in a set of values. | `=MIN(A2:A6)`
+- [Excel functions (alphabetical)](https://support.microsoft.com/en-us/office/excel-functions-alphabetical-b3944572-255d-4efb-bb96-c6d90033e188)
+- [Excel functions (by category)](https://support.microsoft.com/en-us/office/excel-functions-by-category-5f91f4e9-7b42-46d2-9bd1-63f26a86c0eb)
+
+### Common Functions
+
+Function | Description | Example
+-------- | ----------- | -------
+[SUM(number1, [number2], ...)](https://support.microsoft.com/en-us/office/sum-function-043e1c7d-7726-4e80-8f32-07b23e057f89) | Calculates the sum of a group of values. | `=SUM(A2:A10)`
+[MAX(number1, [number2], ...)](https://support.microsoft.com/en-us/office/max-function-e0012414-9ac8-4b34-9a47-73e662c08098) | Returns the **largest** value in a set of values. | `=MAX(A2:A10)`
+[MIN(number1, [number2], ...)](https://support.microsoft.com/en-us/office/min-function-61635d12-920f-4ce2-a70f-96f202dcc152) | Returns the **smallest** number in a set of values. | `=MIN(A2:A10)`
+[AVERAGE(number1, [number2], ...)](https://support.microsoft.com/en-us/office/average-function-047bac88-d466-426c-a32b-8f33eb960cf6) | Calculates the mean of a group of values. | `=AVERAGE(A2:A10)`
+[COUNT(value1, [value2], ...)](https://support.microsoft.com/en-us/office/count-function-a59cd7fc-b623-4d93-87a4-d23bf411294c) | Counts the number of cells in a range that **contains numbers**. | `=COUNT(A2:A10)`
+[COUNTA(value1, [value2], ...)](https://support.microsoft.com/en-us/office/counta-function-7dc98875-d5c1-46f1-9a82-53f3219e2509) | Counts the number of cells that are not empty in a range. | `=COUNTA(A2:A10)`
+
+### Math Functions
+
+Function | Description | Example
+-------- | ----------- | -------
+[INT(number)](https://support.microsoft.com/en-us/office/int-function-a6c4af9e-356d-4369-ab6a-cb1fd9d343ef) | Rounds a number down to the nearest integer. | `=INT(A2)`
+[ROUND(number, num_digits)](https://support.microsoft.com/en-us/office/round-function-c018c5d8-40fb-4053-90b1-b3e7f61a213c) | Rounds a number to a specified number of digits. | `=ROUND(2.15, 1)`
+[ROUNDDOWN(number, num_digits)](https://support.microsoft.com/en-us/office/rounddown-function-2ec94c73-241f-4b01-8c6f-17e6d7968f53) | Rounds a number down, toward zero. | `=ROUNDDOWN(3.2, 0)`
+[ROUNDUP(number, num_digits)](https://support.microsoft.com/en-us/office/roundup-function-f8bc9b23-e795-47db-8703-db171d0c42a7) | Rounds a number up, away from 0 (zero). | `=ROUNDUP(3.2,0)`
+[SUBTOTAL(function_num,ref1,[ref2],...)](https://support.microsoft.com/en-us/office/subtotal-function-7b027003-f060-4ade-9040-e478765b9939) | Returns a subtotal in a list or database. It is generally easier to create a list with subtotals by using the Subtotal command in the **Outline** group on the **Data** tab in Excel. | `=SUBTOTAL(1,A2:A5)`
+[SUMIF(range, criteria, [sum_range])](https://support.microsoft.com/en-us/office/sumif-function-169b8c99-c05c-4483-a712-1697a653039b) | Adds the cells specified by a given criteria | `=SUMIF(A2:A5,">160000",B2:B5)`
+
+
+IF() Function
+
+Explain function. Maybe use table above.
+
+`=IF(F5>=Goal,"YES","NO")`
+
+AND Function
+
+`COUNTIF()`
+
+`SUMIF()`
+
+`VLOOKUP()`: Look up values in another worksheet **vertically**. This is often helpful if you are trying to pull exact values from one worksheet to another.
+
+Examples:
+
+`=VLOOKUP($B3,'Master Emp List'!$A$1:$I$38,2,FALSE)`
+
+`VLOOKUP()` parameters:
+
+- `Lookup_value`: Typically the ID to reference another table.
+- `Table_array`: The entire table that you are referencing in another worksheet. The `lookup_value` must be the found in the first column of this table.
+- `Col_index_num`: The column number that you want to pull from the other worksheet. This is base 1.
+- `Range_lookup`: If you want an exact match use "FALSE", otherwise use "TRUE". Most often we'll use FALSE.
+
+`HLOOKUP()`: Look up values in another worksheet **horizontally**. This follows the same format as `VLOOKUP()`, but is just horizontal.
+
+`INDEX()`: Returns a value at a specific position in a list. You provide the cells to search, then the row and column number (e.g. 4). This pinpoints an exact match in the spreadsheet. This most likely will not be used often on its own.
+
+`MATCH()`: Returns a numeric position of a value. It's the opposite of `INDEX()` where you provide a value, and it tells you which field it's in.
+
+## Errors
+
+Error | Explanation
+----- | -----------
+`#DIV/0!` | Trying to divide by 0.
+`#VALUE!` | There's something wrong with the way your formula is typed. Or, there's something wrong with the cells you are referencing. The error is very general, and it can be hard to find the exact cause of it. [Troubleshoot](https://support.microsoft.com/en-us/office/how-to-correct-a-value-error-15e1b616-fbf2-4147-9c0b-0a11a20e409e)
+`#NUM!` | A formula or function contains numeric values that aren’t valid. [Troubleshoot](https://support.microsoft.com/en-us/office/how-to-correct-a-num-error-f5193bfc-4400-43f4-88c4-8e1dcca0428b)
+`#N/A` | A formula or a function inside a formula cannot find the referenced data. [Troubleshoot](https://support.microsoft.com/en-us/office/how-to-correct-a-n-a-error-a9708411-f82e-4e1b-8a7e-28c28311b993)
+`#REF!` | A formula refers to a cell that’s not valid. This happens most often when cells that were referenced by formulas get deleted, or pasted over. [Troubleshoot](https://support.microsoft.com/en-us/office/how-to-correct-a-ref-error-822c8e46-e610-4d02-bf29-ec4b8c5ff4be)
+`#NAME?` | Text in the formula is not recognized. The top reason why the #NAME? error appears in your formula is because there is a typo in the formula name. [Troubleshoot](https://support.microsoft.com/en-us/office/how-to-correct-a-name-error-b6d54e31-a743-4d7d-9b61-40002a7b4286)
+`#####` | Excel might show `#####` in cells when a column isn’t wide enough to show all of the cell contents. Formulas that return dates and times as negative values can also show as #####. [Troubleshoot](https://support.microsoft.com/en-us/office/how-to-correct-a-error-bf801d0a-2a6e-44bd-a70e-0f780ae8f11e)
+`#NULL!` | A space was used in formulas that reference multiple ranges; a comma separates range references.
 
 ## Shortcuts
 
@@ -204,45 +267,3 @@ See Also:
 ## Name Manager
 
 You can create variables with the textbox to the left of the formula bar.
-
-## IF() Function
-
-Explain function. Maybe use table above.
-
-`=IF(F5>=Goal,"YES","NO")`
-
-## AND Function
-
-`COUNTIF()`
-
-`SUMIF()`
-
-`VLOOKUP()`: Look up values in another worksheet **vertically**. This is often helpful if you are trying to pull exact values from one worksheet to another.
-
-Examples:
-
-`=VLOOKUP($B3,'Master Emp List'!$A$1:$I$38,2,FALSE)`
-
-`VLOOKUP()` parameters:
-
-- `Lookup_value`: Typically the ID to reference another table.
-- `Table_array`: The entire table that you are referencing in another worksheet. The `lookup_value` must be the found in the first column of this table.
-- `Col_index_num`: The column number that you want to pull from the other worksheet. This is base 1.
-- `Range_lookup`: If you want an exact match use "FALSE", otherwise use "TRUE". Most often we'll use FALSE.
-
-`HLOOKUP()`: Look up values in another worksheet **horizontally**. This follows the same format as `VLOOKUP()`, but is just horizontal.
-
-`INDEX()`: Returns a value at a specific position in a list. You provide the cells to search, then the row and column number (e.g. 4). This pinpoints an exact match in the spreadsheet. This most likely will not be used often on its own.
-
-`MATCH()`: Returns a numeric position of a value. It's the opposite of `INDEX()` where you provide a value, and it tells you which field it's in.
-
-## Errors
-
-Error | Explanation
------ | -----------
-`#VALUE!` | "There's something wrong with the way your formula is typed. Or, there's something wrong with the cells you are referencing." The error is very general, and it can be hard to find the exact cause of it. [Troubleshoot](https://support.microsoft.com/en-us/office/how-to-correct-a-value-error-15e1b616-fbf2-4147-9c0b-0a11a20e409e)
-`#NUM!` | Excel shows this error when a formula or function contains numeric values that aren’t valid. [Troubleshoot](https://support.microsoft.com/en-us/office/how-to-correct-a-num-error-f5193bfc-4400-43f4-88c4-8e1dcca0428b)
-`#N/A` | The `#N/A` error generally indicates that a formula can’t find what it’s been asked to look for. [Troubleshoot](https://support.microsoft.com/en-us/office/how-to-correct-a-n-a-error-a9708411-f82e-4e1b-8a7e-28c28311b993)
-`#REF!` | The `#REF!` error shows when a formula refers to a cell that’s not valid. This happens most often when cells that were referenced by formulas get deleted, or pasted over. [Troubleshoot](https://support.microsoft.com/en-us/office/how-to-correct-a-ref-error-822c8e46-e610-4d02-bf29-ec4b8c5ff4be)
-`#NAME?` | The top reason why the #NAME? error appears in your formula is because there is a typo in the formula name. [Troubleshoot](https://support.microsoft.com/en-us/office/how-to-correct-a-name-error-b6d54e31-a743-4d7d-9b61-40002a7b4286)
-`#####` | Excel might show `#####` in cells when a column isn’t wide enough to show all of the cell contents. Formulas that return dates and times as negative values can also show as #####. [Troubleshoot](https://support.microsoft.com/en-us/office/how-to-correct-a-error-bf801d0a-2a6e-44bd-a70e-0f780ae8f11e)
