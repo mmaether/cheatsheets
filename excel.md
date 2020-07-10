@@ -267,3 +267,34 @@ See Also:
 ## Name Manager
 
 You can create variables with the textbox to the left of the formula bar.
+
+## Protecting Worksheets
+
+Once you've made changes to a worksheet, you want to prevent people from changing things, such as formulas.
+
+### Protecting Specific Cells
+
+Every cell has a locked property, and by default it is turned On.
+
+You need to remove the Lock from cells, then protect it.
+
+1. Select the cells you want people to **be able to change**.
+2. Go to Home > Font > Font Settings > Protection.
+3. Uncheck the Locked property. 
+4. Go to Review > Protect Sheet. Enter a password, select the options, hit enter.
+
+### Protecting the Structure of a Workbook
+
+If a worksheet references another worksheet, we want to protect it so those references don't get destroyed. 
+
+1. Go to Review > Changes > Protect Workbook
+2. Enter in a password if desired. Click OK.
+
+Protecting Workbooks prevent people from renaming worksheets, inserting, deleting, moving, etc.
+
+## What-If Analysis
+
+### Goal Seek
+
+Pretty cool.
+
