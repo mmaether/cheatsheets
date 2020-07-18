@@ -280,12 +280,12 @@ You need to remove the Lock from cells, then protect it.
 
 1. Select the cells you want people to **be able to change**.
 2. Go to Home > Font > Font Settings > Protection.
-3. Uncheck the Locked property. 
+3. Uncheck the Locked property.
 4. Go to Review > Protect Sheet. Enter a password, select the options, hit enter.
 
 ### Protecting the Structure of a Workbook
 
-If a worksheet references another worksheet, we want to protect it so those references don't get destroyed. 
+If a worksheet references another worksheet, we want to protect it so those references don't get destroyed.
 
 1. Go to Review > Changes > Protect Workbook
 2. Enter in a password if desired. Click OK.
@@ -298,3 +298,54 @@ Protecting Workbooks prevent people from renaming worksheets, inserting, deletin
 
 Pretty cool.
 
+`LEFT()`: Get the set number of left characters.
+
+`=LEFT(A4,3)`
+
+`RIGHT()`: `=RIGHT(A4,2)`
+
+`MID()`: Get characters in the middle of the cell.
+
+`=MID(A4,4,6)`
+
+`LEN()`: Returns the number of characters in a cell.
+
+`=LEN(A3)`
+
+`SEARCH()`: Search a string for a specific character.
+
+`SEARCH(A2)`
+
+To split on a Full Name field:
+
+Full Name: Joe Burns.
+
+- Get first name: `=LEFT(A2,SEARCH(" ",A2))`
+- Get last name: `=RIGHT(A2,LEN(A2)-SEARCH(" ",A2))`
+
+To concatenate individual names to a singular name:
+
+Last Name | First Name
+--------- | ----------
+Smith | Howard
+
+`=CONCATENATE(B2," ",A2)`
+
+## Auditing Worksheets
+
+All of these items can be found in Formulas > Formula Auditing.
+
+- Trace Precedents: This is pretty cool. It displays lines of cells that were used in the formula.
+- Trace Dependents: Running this while in a cell will show what cells reference this cell.
+- Watch Window: Mark a cell you want to watch to alert you if its value gets updated.
+- Show Formulas: Displays the formulas right in the worksheet rather than the values. It's helpful to review the worksheet and make sure the formulas are correct.
+
+## Macros
+
+Macros allow you to automate tasks in Excel with code.
+
+First you need to turn on the Developer tab.
+
+1. Right click anywhere on the ribbon, and then click Customize the Ribbon.
+2. Under Customize the Ribbon, on the right side of the dialog box, select Main tabs (if necessary).
+3. Check the Developer check box.
