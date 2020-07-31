@@ -55,5 +55,5 @@ Typically only one ReactDOM.render() call. | One ReactDOM.render() call per widg
 Once `create-react-app` is created, you will have this folder structure.
 
 - `package.json`: Stores metadata and dependency packages of the app.
-- `node_modules`: 
-- 
+- `node_modules`: Holds all the dependencies and subdependencies of the project. Don't edit it, it's automatically generated.
+- `public`: Root folder that gets served by the web server. Holds the files we can edit.

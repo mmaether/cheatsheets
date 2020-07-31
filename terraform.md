@@ -7,9 +7,12 @@ Terraform enables you to safely and predictably create, change, and improve clou
 Follow the [Installing Terraform](https://learn.hashicorp.com/terraform/getting-started/install) page to install Terraform.
 
 1. Download the zip file.
-2. Extract to a folder, i.e. `C:\`
+2. Extract to a folder, e.g. `C:\Terraform`
 3. Set `PATH` environment variables.
-4. Verify installation, `terraform`
+   1. Go to `Control Panel` > `System` > `System settings` > `Environment Variables`
+   2. Under System Variables find `Path`. Click Edit.
+   3. Add a new variables, e.g. `C:\Terraform`. Save.
+4. Verify installation, in the CLI type `terraform`.
 5. Install AWS CLI, run `aws configure`.
 6. Run `terraform init` in Terraform folder.
 
