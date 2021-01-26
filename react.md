@@ -37,7 +37,7 @@ var app = (
     <Person name="Mike" age="31" />
     <Person name="Ricky" age="29" />
   </div>
-  
+
 );
 
 ReactDOM.render(app, document.querySelector('#app'));
@@ -57,3 +57,26 @@ Once `create-react-app` is created, you will have this folder structure.
 - `package.json`: Stores metadata and dependency packages of the app.
 - `node_modules`: Holds all the dependencies and subdependencies of the project. Don't edit it, it's automatically generated.
 - `public`: Root folder that gets served by the web server. Holds the files we can edit.
+
+Events
+
+[SyntheticEvent](https://reactjs.org/docs/events.html#supported-events) lists all supported event types.
+
+Event Type | Commands
+---------- | --------
+Clipboard Events | `onCopy onCut onPaste`
+Composition Events | `onCompositionEnd onCompositionStart onCompositionUpdate`
+Keyboard Events | `onKeyDown onKeyPress onKeyUp`
+Focus Events | `onFocus onBlur`
+Form Events | `onChange onInput onInvalid onReset onSubmit`
+Mouse Events | `onClick onContextMenu onDoubleClick onDrag onDragEnd onDragEnter onDragExit onDragLeave onDragOver onDragStart onDrop onMouseDown onMouseEnter onMouseLeave onMouseMove onMouseOut onMouseOver onMouseUp`
+Pointer Events | `onPointerDown onPointerMove onPointerUp onPointerCancel onGotPointerCapture onLostPointerCapture onPointerEnter onPointerLeave onPointerOver onPointerOut`
+Selection Events | `onSelect`
+Touch Events | `onTouchCancel onTouchEnd onTouchMove onTouchStart`
+UI Events | `onScroll`
+Wheel Events | `onWheel`
+Media Events  | `onAbort onCanPlay onCanPlayThrough onDurationChange onEmptied onEncrypted onEnded onError onLoadedData onLoadedMetadata onLoadStart onPause onPlay onPlaying onProgress onRateChange onSeeked onSeeking onStalled onSuspend onTimeUpdate onVolumeChange onWaiting`
+Image Events | `onLoad onError`
+Animation Events | `onAnimationStart onAnimationEnd onAnimationIteration`
+Transition Events | `onTransitionEnd`
+Other Events | `onToggle`
