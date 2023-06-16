@@ -10,6 +10,7 @@
 - [node.js](nodejs.md)
 - [Product Owner](product-owner.md)
 - [Protocol Buffers](protocol-buffers/protocol-buffers.md)
+- [Python](python.md)
 - [React](react.md)
 - [Regex](regex.md)
 - [Sass](sass.md)
