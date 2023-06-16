@@ -110,7 +110,7 @@ for pet in pets:
 ```py
 for i in range(5):
   print(i)
-
+W
 # 0
 # 1
 # 2
@@ -119,5 +119,20 @@ for i in range(5):
 # 5
 ```
 
+## Functions
+
+```py
+def hello(name):
+  print('Hello ' + name)
+
+hello('Alice')
+# Hello Alice
+```
+
 Installing 3rd party modules:
 [https://www.youtube.com/watch?v=lvm6Q3SBJEk](https://www.youtube.com/watch?v=lvm6Q3SBJEk)
+
+## VS Code
+
+- [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial#_prerequisites)
+- [Python in Visual Studio Code](https://code.visualstudio.com/docs/languages/python)
