@@ -14,6 +14,7 @@
 - [React](react.md)
 - [Regex](regex.md)
 - [Sass](sass.md)
+- [Selenium](selenium.md)
 - [Terraform](terraform.md)
 - [Vim](vim.md)
 - [Web Design](web-design.md)
