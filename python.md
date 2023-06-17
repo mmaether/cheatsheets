@@ -134,5 +134,5 @@ Installing 3rd party modules:
 
 ## VS Code
 
-- [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial#_prerequisites)
+- [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial)
 - [Python in Visual Studio Code](https://code.visualstudio.com/docs/languages/python)
